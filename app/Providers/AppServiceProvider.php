@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $repositories = [
+                'Users\UserRepositoryInterface' => 'Users\UserRepository',
+        ];
+        foreach($repositories as $key=>$val){
+            $this->app->bind("App\\Repositories\\$key", "App\\Repositories\\$val");
+        }
+
     }
 }

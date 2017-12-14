@@ -308,7 +308,7 @@
 		</div>
 
 		<div class="text-center">
-			<a class="btn btn-success m-right-sm" href="{{URL::route('sign-out')}}">Logout</a>
+			<a class="btn btn-success m-right-sm" href="{{URL::route('logout')}}">Logout</a>
 			<a class="btn btn-danger logoutConfirm_close">Cancel</a>
 		</div>
 	</div>

@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * process login-logout
+ */
+Route::get('login', [
+        'as' => 'login',
+        'uses' => 'Backend\AuthController@index'
+]);
+Route::post('login', [
+        'as' => 'login',
+        'uses' => 'Backend\AuthController@processLogin'
+]);
+Route::get('logout', [
+        'as' => 'logout',
+        'uses' => 'Backend\AuthController@logout'
+]);

@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<form class="form-login" action="{{URL::route('sign-in')}}" method="post">
+					<form class="form-login" action="{{URL::route('login')}}" method="post">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<label>Email</label>
