@@ -1,0 +1,454 @@
+/* header */
+
+body,
+input,
+button,
+option,
+textarea,
+label,
+legend,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    font: 14px/18px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    color: #333;
+    outline: none;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    background: #fed700;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-brand {
+    background: #333;
+    color: #000;
+}
+
+.navbar-brand strong {
+    color: #d0021b;
+    margin-left: 0px;
+}
+
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:hover {
+    background: #333;
+}
+
+.navbar>.container .navbar-brand,
+.navbar>.container-fluid .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse {
+    background: #fed700;
+    border-color: #fed700;
+    z-index: 100;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    background-color: #ebebeb;
+    color: #000;
+}
+
+.navbar>.container .navbar-brand,
+.navbar>.container-fluid .navbar-brand {
+    margin-left: 0px;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: #000;
+    background: #fed700;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/*banner*/
+
+.banner {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* content */
+
+.page-left {
+    overflow: hidden;
+    border-radius: 3px;
+    border: 1px solid #e4e4e4;
+    position: relative;
+}
+
+.simwrap {
+    display: block;
+    overflow: hidden;
+    padding: 10px 10px 0;
+    background: #f7f7f7;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.titlesimcard {
+    display: block;
+    overflow: hidden;
+    line-height: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.simpackage {
+    display: block;
+    overflow: hidden;
+    margin: 10px 0 0;
+}
+
+.simpackage a {
+    display: inline-block;
+    vertical-align: top;
+    width: 18.96%;
+    margin: 0 .2% 1% 0;
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg, #fff 0%, #f3f3f3 100%);
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 44px;
+}
+
+.simpackage a div {
+    display: block;
+    line-height: normal;
+    font-size: 14px;
+    font-weight: 600;
+    color: #288ad6;
+    text-transform: uppercase;
+    margin: 6px 0 3px;
+}
+
+.simpackage a span {
+    font-size: 12px;
+    color: #288ad6;
+    line-height: normal;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.simpackage ul li {
+    width: 100%;
+    display: inline;
+}
+
+.simpackage ul li a {
+    text-decoration: none;
+}
+
+.simpackage ul li a:nth-child(4n+4) {
+    background: red;
+}
+
+.simpackage a div strong {
+    color: #d0021b;
+}
+
+.simpackage a div b {
+    color: #333;
+}
+
+.searchsim {
+    display: block;
+    overflow: visible;
+    height: 36px;
+    position: relative;
+    padding: 0 10px;
+    margin-top: 15px;
+}
+
+.searchsim input {
+    float: left;
+    width: 76%;
+    max-width: 640px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333;
+    min-width: 220px;
+}
+
+.searchsim button {
+    float: right;
+    border: 1px solid #288ad6;
+    background: #288ad6;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    width: 20%;
+    height: 38px;
+    cursor: pointer;
+}
+
+.findtip {
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin: 5px 10px 0 10px;
+    z-index: 2;
+    background: #fff;
+    clear: both;
+}
+
+.findtip span {
+    display: block;
+    line-height: 1.5;
+}
+
+.simfilter {
+    display: block;
+    position: relative;
+    background: #fff;
+    padding: 0 10px;
+    margin: 15px 0 0px 0px;
+}
+
+.order-phone {
+    color: #288ad6;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.simfilter label {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+.simfilter .navifil {
+    display: inline-block;
+    line-height: 40px;
+    vertical-align: 0px;
+    color: #288ad6;
+    margin: 0 10px;
+}
+
+.filter-name {
+    float: left;
+}
+
+.filter-title,
+.navifil select {
+    color: #288ad6;
+}
+
+.simresult {
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.simbar tr {
+    background: #ededed;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.phone-number {
+    font-weight: 600;
+    color: #288ad6;
+    text-align: left;
+}
+
+.phone-price {
+    font-weight: 600;
+    color: #d0021b;
+    text-align: left;
+}
+
+.phone-address {
+    color: #333;
+    text-align: left;
+}
+
+.thutuc {
+    display: block;
+    line-height: 1.5;
+    padding: 0 10px 10px 10px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.titlesim {
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+    line-height: 40px;
+    font-weight: 600;
+    padding: 0 10px;
+    margin-top: 10px;
+}
+
+.thutuc span {
+    display: block;
+    line-height: 1.8;
+}
+
+.thutuc .titlesim {
+    padding-left: 0;
+}
+
+.wrapother {
+    display: block;
+    overflow: hidden;
+    padding: 20px 10px 10px 10px;
+}
+
+.titlesimcard {
+    display: block;
+    overflow: hidden;
+    line-height: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.wrapother ul {
+    display: block;
+    overflow: hidden;
+}
+
+.wrapother li {
+    float: left;
+    overflow: hidden;
+    width: 33%;
+}
+
+.wrapother li div {
+    border-bottom: 1px solid #e4e4e4;
+    display: block;
+    overflow: hidden;
+    margin: 0 10px 10px 10px;
+    padding-bottom: 5px;
+    min-height: 70px;
+}
+
+.wrapother li div i {
+    margin-bottom: 4px;
+    display: block;
+}
+
+.iconsimcard-vt {
+    background-position: 0 -65px;
+    width: 104px !important;
+    height: 14px !important;
+}
+
+[class^="iconsimcard-"],
+[class*="iconsimcard-"] {
+    background-image: url(assets/img/iconsim.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.iconsimcard-mb {
+    background-position: -120px -65px;
+    width: 101px !important;
+    height: 16px !important;
+}
+
+.iconsimcard-vn {
+    background-position: -230px -65px;
+    width: 102px !important;
+    height: 24px !important;
+}
+
+.rowfoot2 {
+    width: 100%;
+    overflow: hidden;
+    background: #f8f8f8;
+    padding: 10px 0;
+}
+
+.rowfoot2 p {
+    display: block;
+    width: 100%;
+    margin: auto;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+}
+
+.newquestion {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.newquestion h4 {
+    display: block;
+    overflow: hidden;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 6px 0 10px 0;
+    background: #ededed;
+    padding: 10px 10px 10px 10px;
+}
+
+.newdh {
+    padding: 7px 15px;
+    border-bottom: 1px #ccc dotted;
+}
+
+.contact {
+    padding: 9px 32px;
+}
+
+.contact h6 {
+    color: red;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.news-content ul li {
+    padding: 7px 7px 7px 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.news-content ul li a {
+    text-decoration: none;
+}

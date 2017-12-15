@@ -24,6 +24,8 @@
 	<!-- Endless -->
 	<link href="{{asset('backend/css/endless.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/endless-skin.css')}}" rel="stylesheet">
+	<link href="{{asset('backend/style.css')}}" rel="stylesheet">
+	<link href="{{asset('backend/responsive.css')}}" rel="stylesheet">
     @yield('style')
   </head>
 
@@ -272,6 +274,13 @@
 					 <li class="active"> @yield('breadcrumb')</li>
 				</ul>
 			</div><!-- /breadcrumb-->
+			<div class="padding-md">
+				<div class="row">
+    				<div class="col-md-12">
+    			  		@include('backend.layouts.message')
+    			  	</div>
+			  	</div>
+			  	</div>
 			  @yield('content')
 		</div><!-- /main-container -->
 		<!--Modal-->

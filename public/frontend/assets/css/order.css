@@ -1,0 +1,246 @@
+/* order css */
+
+.bar-top {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.buymore {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    line-height: 40px;
+    font-size: 14px;
+    color: #288ad6;
+    padding: 15px 0 0 15px;
+}
+
+.yourcart {
+    display: block;
+    overflow: hidden;
+    text-align: right;
+    color: #333;
+    line-height: 40px;
+    padding-top: 15px;
+}
+
+.content-order {
+    background: #ededed;
+}
+
+.buymore:before,
+.buymore:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 7px solid #288ad6;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 28px;
+}
+
+.buymore:after {
+    margin-left: 2px;
+    border-width: 9px;
+    border-right-color: #f0f0f0;
+    top: 26px;
+}
+
+.wrap_cart {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+
+.listorder {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    clear: both;
+    padding-top: 10px;
+}
+
+li.tragop-item {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d8d8d8;
+    min-height: 80px;
+}
+
+.listorder li {
+    display: block;
+    overflow: visible;
+    margin: 5px 30px;
+}
+
+.listorder li a {
+    display: block;
+    overflow: hidden;
+}
+
+.listorder li a {
+    text-decoration: none;
+    color: #288ad6;
+}
+
+.listorder li a {
+    display: block;
+    overflow: hidden;
+}
+
+.listorder li img {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+}
+
+.listorder li .colinfo {
+    display: inline-block;
+    overflow: visible;
+    width: 450px;
+    padding-left: 5px;
+}
+
+.listorder li .colimg {
+    float: left;
+    overflow: hidden;
+    width: 85px;
+    text-align: left;
+}
+
+.listorder li .colinfo strong {
+    font-size: 14px;
+    color: #c10017;
+    float: right;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.simtypeorder {
+    display: block;
+    line-height: 1.5;
+    padding: 5px 0;
+}
+
+.promotion {
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 5px;
+    width: 90%;
+    height: auto;
+    margin: 10px 10px 0 0;
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    float: left;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.listorder li span {
+    display: block;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.promotion span {
+    display: block;
+    overflow: hidden;
+    padding-left: 10px;
+    color: #333;
+    line-height: 1.5;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.promotion span:before {
+    content: '•';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 20px;
+    color: #999;
+    margin: 0 3px 0 0;
+}
+
+.listorder li.tragop-price span {
+    float: left;
+    width: 50%;
+    line-height: 1.4;
+    padding: 5px 0;
+}
+
+.listorder li .text-right strong {
+    color: #d0021b;
+    font-weight: normal;
+}
+
+.listorder li .text-right strong b {
+    color: #d0021b;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+li.tragop-price {
+    padding: 5px 0;
+    float: left;
+    width: 90%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    margin: 10px 30px;
+}
+
+.infouser {
+    display: block;
+    background: #fff;
+    padding: 0 30px;
+}
+
+.areainfo {
+    display: block;
+    padding: 10px 0 0 0;
+}
+
+.areainfo input {
+    display: block;
+    padding: 9px 0;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+    text-indent: 10px;
+    width: 100%;
+}
+
+.cart-btt {
+    background-image: linear-gradient(-180deg, #f89406 0%, #f76b1c 100%);
+    border: 1px solid #d97f00;
+    text-transform: uppercase;
+    background-image: linear-gradient(-180deg, #f89406 0%, #f76b1c 100%);
+    border: 1px solid #d97f00;
+    border-radius: 4px;
+    text-align: center;
+    width: 90%;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: #fff;
+    display: block;
+    clear: both;
+    box-sizing: border-box;
+    margin: 10px auto 20px;
+}
+
+.cart-btt:hover {
+    text-decoration: none;
+    color: #fff;
+}

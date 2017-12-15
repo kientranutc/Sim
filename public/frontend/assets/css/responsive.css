@@ -1,0 +1,39 @@
+@media (max-width:480px) {
+    .banner {
+        display: none;
+    }
+    .simpackage a {
+        width: 100%;
+    }
+    .wrapother li {
+        float: none;
+        overflow: hidden;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .searchsim input {
+        width: 100%;
+    }
+    .searchsim button {
+        width: 100%;
+    }
+    .nav li {
+        border-bottom: 1px solid #ccc;
+    }
+    .nav li:last-child {
+        border-bottom: none;
+    }
+    .filter-name {
+        float: none;
+    }
+    .promotion {
+        width: 78%;
+    }
+    li.tragop-price {
+        width: 80%;
+    }
+}
+
+@media (min-width:768px) and (max-width: 1024px) {}
+
+@media (min-width:1024px) {}

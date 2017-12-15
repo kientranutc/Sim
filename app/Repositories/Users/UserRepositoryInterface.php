@@ -14,6 +14,10 @@ interface  UserRepositoryInterface
   public function findAttribute($attr, $name);
 
   public function lockAccount($email);
+
+  public function ListInSearchUser($email, $active, $limit);
+
+  public function lockAndUnlock($id);
 }
 
 ?>

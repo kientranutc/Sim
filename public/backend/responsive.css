@@ -1,0 +1,11 @@
+@media ( max-width :480px) {
+	input#email {
+		width: 100%;
+	}
+}
+
+@media ( min-width :480px) and (max-width:768px) {
+	input#email {
+		width: 100%;
+	}
+}
