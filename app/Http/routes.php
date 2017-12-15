@@ -36,7 +36,8 @@ Route::get('logout', [
         'uses' => 'Backend\AuthController@logout'
 ]);
 
-    Route::group(['prefix' => 'admin'], function () {
+
+Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () {
         Route::get('logout', [
                 'as' => 'logout',
                 'uses' => 'Backend\AuthController@logout'
