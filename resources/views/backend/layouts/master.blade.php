@@ -270,7 +270,7 @@
 		<div id="main-container">
 			<div id="breadcrumb">
 				<ul class="breadcrumb">
-					 <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+					 <li><i class="fa fa-home"></i><a href="">Home</a></li>
 					 <li class="active"> @yield('breadcrumb')</li>
 				</ul>
 			</div><!-- /breadcrumb-->
@@ -322,6 +322,23 @@
 		</div>
 	</div>
 
+<div id="deleteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Bạn có muốn xóa nhà mạng không?</h4>
+      </div>
+      <div class="modal-body text-right">
+       <a href="" id="url-modal" class="btn btn-danger"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Xóa</a>
+       <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -360,8 +377,11 @@
 	<!-- Cookie -->
 	<script src="{{asset('backend/js/jquery.cookie.min.js')}}"></script>
 
+     <script src="{{asset('backend/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+
 	<!-- Endless -->
 	<script src="{{asset('backend/js/endless/endless.js')}}"></script>
+		<script src="{{asset('backend/js/modal/main.js')}}"></script>
     @yield('script')
   </body>
 </html>

@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $repositories = [
                 'Users\UserRepositoryInterface' => 'Users\UserRepository',
+                'Net\NetRepositoryInterface' => 'Net\NetRepository',
+                'TypeSim\TypeSimRepositoryInterface' => 'TypeSim\TypeSimRepository',
+                'Sim\SimRepositoryInterface' => 'Sim\SimRepository',
         ];
         foreach($repositories as $key=>$val){
             $this->app->bind("App\\Repositories\\$key", "App\\Repositories\\$val");

@@ -61,4 +61,75 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                     'uses' => 'Backend\UserController@processCreateUser'
             ]);
         });
+
+       //net
+            Route::group(['prefix' => 'net'], function () {
+                Route::get('/',[
+                        'as' =>'net.index',
+                        'uses' => 'Backend\NetController@index'
+                ]);
+                Route::get('/create',[
+                        'as' =>'net.create',
+                        'uses' => 'Backend\NetController@createForm'
+                ]);
+                Route::post('/create',[
+                        'as' =>'net.create',
+                        'uses' => 'Backend\NetController@processCreateForm'
+                ]);
+                Route::get('/edit/{id}',[
+                        'as' =>'net.edit',
+                        'uses' => 'Backend\NetController@editForm'
+                ]);
+                Route::post('/edit/{id}',[
+                        'as' =>'net.edit',
+                        'uses' => 'Backend\NetController@processEditForm'
+                ]);
+                Route::get('/delete/{id}',[
+                        'as' =>'net.delete',
+                        'uses' => 'Backend\NetController@delete'
+                ]);
+            });
+       //type
+        Route::group(['prefix' => 'type-sim'], function () {
+               Route::get('/',[
+                            'as' =>'type-sim.index',
+                            'uses' => 'Backend\TypeSimController@index'
+             ]);
+               Route::get('/create',[
+                       'as' =>'type-sim.create',
+                       'uses' => 'Backend\TypeSimController@Create'
+               ]);
+               Route::post('/create',[
+                       'as' =>'type-sim.create',
+                       'uses' => 'Backend\TypeSimController@processCreateForm'
+               ]);
+               Route::get('/update/{id}',[
+                       'as' =>'type-sim.update',
+                       'uses' => 'Backend\TypeSimController@editForm'
+               ]);
+               Route::post('/update/{id}',[
+                       'as' =>'type-sim.update',
+                       'uses' => 'Backend\TypeSimController@processEditForm'
+               ]);
+               Route::get('/delete/{id}',[
+                       'as' =>'type-sim.delete',
+                       'uses' => 'Backend\TypeSimController@delete'
+               ]);
+        });
+            //sim
+            Route::group(['prefix' => 'sim'], function () {
+                Route::get('/',[
+                        'as' =>'sim.index',
+                        'uses' => 'Backend\SimController@index'
+                ]);
+                Route::get('/create',[
+                        'as' =>'sim.create',
+                        'uses' => 'Backend\SimController@createForm'
+                ]);
+                Route::post('/create',[
+                        'as' =>'sim.create',
+                        'uses' => 'Backend\SimController@processCreateForm'
+                ]);
+
+            });
     });

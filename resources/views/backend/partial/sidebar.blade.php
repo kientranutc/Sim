@@ -27,12 +27,22 @@
 								<span class="menu-hover"></span>
 							</a>
 							<ul class="submenu">
-								<li {{(Route::currentRouteName()=='users.index')||
-									(Route::currentRouteName()=='users.create')
-								?'active':''}}><a href="{{URL::route('users.index')}}"><span class="submenu-label">User Management</span></a></li>
+								<li class="{{(Route::currentRouteName()=='users.index')||
+									(Route::currentRouteName()=='net.create')
+									|| (Route::currentRouteName()=='net.edit')
+								?'active':''}}"><a href="{{URL::route('users.index')}}"><span class="submenu-label">User Management</span></a></li>
 							</ul>
 						</li>
-
+						<li class="{{(Route::currentRouteName()=='net.index')||
+									(Route::currentRouteName()=='net.create')
+									|| (Route::currentRouteName()=='net.edit')
+								?'active':''}}"><a href="{{URL::route('net.index')}}"><span class="submenu-label"> <i class="fa fa-random fa-lg" aria-hidden="true"></i> Nhà mạng</span></a></li>
+						<li class="{{(Route::currentRouteName()=='type-sim.index')
+									|| (Route::currentRouteName()=='type-sim.create')
+									|| (Route::currentRouteName()=='type-sim.update')
+								?'active':''}}"><a href="{{URL::route('type-sim.index')}}"><span class="submenu-label"> <i class="fa fa-server fa-lg" aria-hidden="true"></i> Loại Sim</span></a></li>
+						<li class="{{(Route::currentRouteName()=='sim.index')
+								?'active':''}}"><a href="{{URL::route('sim.index')}}"><span class="submenu-label"> <i class="fa fa-server fa-lg" aria-hidden="true"></i> Sim</span></a></li>
 					</ul>
 				</div><!-- /main-menu -->
 			</div><!-- /sidebar-inner -->
