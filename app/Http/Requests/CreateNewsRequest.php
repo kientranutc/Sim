@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UpdateSimRequest extends Request
+class CreateNewsRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class UpdateSimRequest extends Request
     public function rules()
     {
         return [
-                'name'=>'required|max:255',
-                'price'=>'required',
+                'title'=>'required|unique:news|max:255',
         ];
     }
 }

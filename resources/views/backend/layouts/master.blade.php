@@ -75,118 +75,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<ul class="nav-notification clearfix">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="fa fa-envelope fa-lg"></i>
-						<span class="notification-label bounceIn animation-delay4">7</span>
-					</a>
-					<ul class="dropdown-menu message dropdown-1">
-						<li><a>You have 4 new unread messages</a></li>
-						<li>
-							<a class="clearfix" href="#">
-								<img src="backend/img/user.jpg" alt="User Avatar">
-								<div class="detail">
-									<strong>John Doe</strong>
-									<p class="no-margin">
-										Lorem ipsum dolor sit amet...
-									</p>
-									<small class="text-muted"><i class="fa fa-check text-success"></i> 27m ago</small>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a class="clearfix" href="#">
-								<img src="{{asset('backend/img/user2.jpg')}}" alt="User Avatar">
-								<div class="detail">
-									<strong>Jane Doe</strong>
-									<p class="no-margin">
-										Lorem ipsum dolor sit amet...
-									</p>
-									<small class="text-muted"><i class="fa fa-check text-success"></i> 5hr ago</small>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a class="clearfix" href="#">
-								<img src="img/user.jpg" alt="User Avatar">
-								<div class="detail">
-									<strong>Bill Doe</strong>
-									<p class="no-margin">
-										Lorem ipsum dolor sit amet...
-									</p>
-									<small class="text-muted"><i class="fa fa-reply"></i> Yesterday</small>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a class="clearfix" href="#">
-								<img src="img/user2.jpg" alt="User Avatar">
-								<div class="detail">
-									<strong>Baby Doe</strong>
-									<p class="no-margin">
-										Lorem ipsum dolor sit amet...
-									</p>
-									<small class="text-muted"><i class="fa fa-reply"></i> 9 Feb 2013</small>
-								</div>
-							</a>
-						</li>
-						<li><a href="#">View all messages</a></li>
-					</ul>
-				</li>
-				<li class="dropdown hidden-xs">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-tasks fa-lg"></i>
-						<span class="notification-label bounceIn animation-delay5">4</span>
-					</a>
-					<ul class="dropdown-menu task dropdown-2">
-						<li><a href="#">You have 4 tasks to complete</a></li>
-						<li>
-							<a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Bug Fixes</span>
-									<small class="pull-right text-muted">78%</small>
-								</div>
-								<div class="progress">
-									<div class="progress-bar" style="width:78%"></div>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Software Updating</span>
-									<small class="pull-right text-muted">54%</small>
-								</div>
-								<div class="progress progress-striped">
-									<div class="progress-bar progress-bar-success" style="width:54%"></div>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Database Migration</span>
-									<small class="pull-right text-muted">23%</small>
-								</div>
-								<div class="progress">
-									<div class="progress-bar progress-bar-warning" style="width:23%"></div>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Unit Testing</span>
-									<small class="pull-right text-muted">92%</small>
-								</div>
-								<div class="progress progress-striped active">
-									<div class="progress-bar progress-bar-danger " style="width:92%"></div>
-								</div>
-							</a>
-						</li>
-						<li><a href="#">View all tasks</a></li>
-					</ul>
-				</li>
+
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="fa fa-bell fa-lg"></i>
@@ -244,22 +133,20 @@
 				</li>
 				<li class="profile dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<strong>John Doe</strong>
+						<strong>{{Auth::user()->name}}</strong>
 						<span><i class="fa fa-chevron-down"></i></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li>
 							<a class="clearfix" href="#">
-								<img src="img/user.jpg" alt="User Avatar">
+								<img src="{{asset('backend/img/user.jpg')}}" alt="User Avatar">
 								<div class="detail">
-									<strong>John Doe</strong>
-									<p class="grey">John_Doe@email.com</p>
+									<strong>{{Auth::user()->name}}</strong>
+									<p class="grey">{{Auth::user()->email}}</p>
 								</div>
 							</a>
 						</li>
 						<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Edit profile</a></li>
-						<li><a tabindex="-1" href="gallery.html" class="main-link"><i class="fa fa-picture-o fa-lg"></i> Photo Gallery</a></li>
-						<li><a tabindex="-1" href="#" class="theme-setting"><i class="fa fa-cog fa-lg"></i> Setting</a></li>
 						<li class="divider"></li>
 						<li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
 					</ul>
@@ -313,12 +200,12 @@
 	<!-- Logout confirmation -->
 	<div class="custom-popup width-100" id="logoutConfirm">
 		<div class="padding-md">
-			<h4 class="m-top-none"> Do you want to logout?</h4>
+			<h4 class="m-top-none"> Bạn có muốn đăng xuất</h4>
 		</div>
 
 		<div class="text-center">
-			<a class="btn btn-success m-right-sm" href="{{URL::route('logout')}}">Logout</a>
-			<a class="btn btn-danger logoutConfirm_close">Cancel</a>
+			<a class="btn btn-success m-right-sm" href="{{URL::route('logout')}}">Đăng xuất</a>
+			<a class="btn btn-danger logoutConfirm_close">Hủy</a>
 		</div>
 	</div>
 
@@ -328,7 +215,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Bạn có muốn xóa nhà mạng không?</h4>
+        <h4 class="modal-title">Bạn có muốn xóa không?</h4>
       </div>
       <div class="modal-body text-right">
        <a href="" id="url-modal" class="btn btn-danger"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Xóa</a>

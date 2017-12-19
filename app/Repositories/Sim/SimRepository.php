@@ -106,7 +106,7 @@ class SimRepository implements  SimRepositoryInterface
     {
         $sim = Sim::find($id);
         if ($sim) {
-            $sim->delete();
+            return $sim->delete();
         }else{
             return false;
         }
@@ -125,11 +125,11 @@ class SimRepository implements  SimRepositoryInterface
     }
     public function searchInListSim($net,$name ,$status, $limit)
     {
-        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_name', 'net.name as net_name')
+        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_names', 'net.name as net_name')
         ->join('net', 'net.id', '=', 'type_sim.net_id')
         ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id');
         if($net!=-1){
-             $result->where('net.id', $net);
+             $result->where('net.id','=', $net);
         }
         if($name!=''){
             $result->where('sim.name','like', "%$name%");

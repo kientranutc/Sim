@@ -1,7 +1,6 @@
 @extends('backend.layouts.master') @section('title') User @endsection
 @section('breadcrumb') User @endsection @section('content')
 <div class="padding-md">
-
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
@@ -78,12 +77,12 @@
 							<td width="10%" class="text-center">
 							@if(env('EMAIL_ADMIN') !=$item->email)
     							@if($item->active==1)
-    								<a href="{{URL::route('users.lock-unlock',[$item->id, $item->active])}}" class="btn btn-danger">Lock</a>
+    								<a href="{{URL::route('users.lock-unlock',[$item->id, $item->active])}}" class="btn btn-danger"><i class="fa fa-lock" aria-hidden="true"></i> Lock</a>
     							@else
-    								<a href="{{URL::route('users.lock-unlock',[$item->id, $item->active])}}" class="btn btn-warning">UnLock</a>
+    								<a href="{{URL::route('users.lock-unlock',[$item->id, $item->active])}}" class="btn btn-warning"><i class="fa fa-unlock" aria-hidden="true"></i> UnLock</a>
     							@endif
 							@endif
-							<a href="" class="btn btn-success ">Update</a>
+							<a href="" class="btn btn-success "><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a>
 							</td>
 						</tr>
 				 	@empty

@@ -126,10 +126,49 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                         'as' =>'sim.create',
                         'uses' => 'Backend\SimController@createForm'
                 ]);
+                Route::get('/delete/{id}',[
+                        'as' =>'sim.delete',
+                        'uses' => 'Backend\SimController@delete'
+                ]);
                 Route::post('/create',[
                         'as' =>'sim.create',
                         'uses' => 'Backend\SimController@processCreateForm'
                 ]);
+                Route::post('/update/{id}',[
+                        'as' =>'sim.update',
+                        'uses' => 'Backend\SimController@processUpdateForm'
+                ]);
+                Route::get('/update/{id}',[
+                        'as' =>'sim.update',
+                        'uses' => 'Backend\SimController@updateForm'
+                ]);
 
             });
+            //news
+                Route::group(['prefix' => 'news'], function () {
+                    Route::get('/',[
+                            'as' =>'news.index',
+                            'uses' => 'Backend\NewsController@index'
+                    ]);
+                    Route::get('/create',[
+                            'as' =>'news.create',
+                            'uses' => 'Backend\NewsController@createForm'
+                    ]);
+                    Route::post('/create',[
+                            'as' =>'news.create',
+                            'uses' => 'Backend\NewsController@processCreateForm'
+                    ]);
+                    Route::get('/update/{id}',[
+                            'as' =>'news.update',
+                            'uses' => 'Backend\NewsController@updateForm'
+                    ]);
+                    Route::post('/update/{id}',[
+                            'as' =>'news.update',
+                            'uses' => 'Backend\NewsController@processUpdateForm'
+                    ]);
+                    Route::get('/delete/{id}',[
+                            'as' =>'news.delete',
+                            'uses' => 'Backend\NewsController@delete'
+                    ]);
+                });
     });
