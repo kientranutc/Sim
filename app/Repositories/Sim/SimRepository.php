@@ -139,6 +139,61 @@ class SimRepository implements  SimRepositoryInterface
         }
        return  $result->orderBy('sim.created_at', 'DESC')->paginate($limit);
     }
+    public function getPriceForNet($net)
+    {
+        $result = TypeSim::select('sim.price' )
+        ->join('net', 'net.id', '=', 'type_sim.net_id')
+        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id')
+        ->where('net.slug', $net);
+        return  $result->orderBy('sim.created_at', 'ASC')->distinct()->get();
+    }
+
+    public function getListSimForNet($netSlug,$name, $typeSim, $price, $firstNumber, $limit)
+    {
+        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_names', 'net.name as net_name')
+        ->join('net', 'net.id', '=', 'type_sim.net_id')
+        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id')
+        ->where('net.slug', $netSlug);
+        if($name!=''){
+            $result->where('sim.name','like', "%$name%");
+        }
+        if($typeSim!=-1){
+            $result->where('sim.type_sim_name',$typeSim);
+        }
+        if($price!=-1){
+            $result->where('sim.price', $price);
+        }
+        if($firstNumber!=-1){
+            $result->where('sim.first_number', $firstNumber);
+        }
+        return  $result->orderBy('sim.created_at', 'DESC')->paginate($limit);
+    }
+    public function getListSim($name, $net, $typeSim, $firstNumber, $limit)
+    {
+        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_names', 'net.name as net_name')
+        ->join('net', 'net.id', '=', 'type_sim.net_id')
+        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id');
+        if($name!=''){
+            $result->where('sim.name','like', "%$name%");
+        }
+        if($typeSim!=-1){
+            $result->where('sim.type_sim_name',$typeSim);
+        }
+        if($net!=-1){
+            $result->where('net.id', $net);
+        }
+        if($firstNumber!=-1){
+            $result->where('sim.first_number', $firstNumber);
+        }
+        return  $result->orderBy('sim.created_at', 'DESC')->paginate($limit);
+    }
+    public function getInfoSimWhenOrder($id)
+    {
+        return Sim::select('sim.*', 'type_sim.name as name_type_sim')
+        ->join('type_sim', 'type_sim.id', '=', 'sim.type_sim_id')
+        ->where('sim.id', $id)
+        ->first();
+    }
 }
 
 ?>

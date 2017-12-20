@@ -10,7 +10,10 @@
 		<a href="{{ URL::previous() }}" class="buymore">Trở về</a>
 		<div class="yourcart">Đặt mua sim</div>
 	</div>
-	<form>
+	<form action="{{URL::route('order.process-order')}}" method="post">
+		{{ csrf_field() }}
+	<input type="hidden" name="sim_id" value="{{$dataSim->id}}">
+		<input type="hidden" name="total" value="{{$dataSim->price+10000}}">
 		<div class="wrap_cart">
 			<div class="detail_cart">
 				<ul class="listorder">
@@ -19,25 +22,24 @@
 							<a title=""> <img width="55" height="55" src="{{asset('frontend/assets/img/Sim.jpg')}}"></a>
 						</div>
 						<div class="colinfo">
-							<strong>75.000₫</strong> <a title="01264.790.174">Sim <b>01264.790.174</b></a>
-							<div class="simtypeorder">Loại sim: Sim Mobi Big</div>
+							<strong>{{number_format($dataSim->price)}}₫</strong> <a title="01264.790.174">Sim <b>{{$dataSim->name}}</b></a>
+							<div class="simtypeorder">Loại sim: {!!$dataSim->name_type_sim!!}</div>
 							<div class="clear"></div>
 						</div>
 					</li>
 					<li class="promotion">
 						<p>
 							<b>THÔNG TIN KHUYẾN MÃI:</b>
-						</p> <span>1000 phút/tháng gọi nội mạng &lt; 10 phút.</span><span>1GB/tháng.
-							Hết 1GB, hạ băng thông không tính phí.</span><span>30 phút/tháng
-							gọi ngoại mạng.</span><span>6 tháng Facebook không giới hạn dung
-							lượng. </span><span>Cú pháp: DK BIG gửi 789 (miễn phí).</span><span>Phí
-							gói: 50.000đ/tháng.</span><span>Thời gian KM: 12 tháng. </span>
+						</p>
+						@if(!empty($dataSim->description))
+							{!!$dataSim->description!!}
+						@endif
 					</li>
 					<li class="tragop-price"><span class="text-left" id="fee-left">Phí
 							giao hàng:</span> <span class="text-right" id="fee-right"
 						data-value="10000">+10.000₫</span></li>
 					<li class="tragop-price"><span class="text-left"><b>Cần thanh toán:</b></span>
-						<span class="text-right"><strong><b id="totalpay">85.000₫</b></strong></span>
+						<span class="text-right"><strong><b id="totalpay">{{number_format($dataSim->price+10000)}}₫</b></strong></span>
 					</li>
 				</ul>
 			</div>
@@ -46,17 +48,17 @@
 					<strong>Thông tin cá nhân</strong>
 				</h5>
 				<div class="areainfo">
-					<input type="text" class="saveinfo" name="txtname" id="txtname"
+					<input type="text" class="saveinfo" name="name" id="txtname"
 						placeholder="Họ và tên" maxlength="50" value="">
 					<div class="clear"></div>
-					<input type="tel" class="saveinfo" name="txtphone" id="txtphone"
+					<input type="tel" class="saveinfo" name="phone" id="txtphone"
 						placeholder="Số điện thoại" maxlength="11" value=""
 						autocomplete="off"> <input type="tel" class="saveinfo"
-						name="txtcmnd" id="txtcmnd"
+						name="cmnd" id="txtcmnd"
 						placeholder="Số CMND/Hộ chiếu đăng ký sim (Bắt buộc)"
 						maxlength="12" autocomplete="off" value="">
 					<div class="form-group">
-						<textarea class="form-control" id="exampleFormControlTextarea1"
+						<textarea class="form-control" name="address" id="exampleFormControlTextarea1"
 							rows="3" placeholder="Địa chỉ nhận hàng"></textarea>
 					</div>
 				</div>

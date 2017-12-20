@@ -28,14 +28,14 @@
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                         </button>
-                            <a class="navbar-brand" href="#"> SIM <strong>SỐ</strong> ĐẸP</a>
+                            <a class="navbar-brand" href="/"> SIM <strong>SỐ</strong> ĐẸP</a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
-                                <li><a href="#">Viettel</a></li>
-                                <li><a href="#">Vinaphone</a></li>
-                                <li><a href="#">Mobiphone</a></li>
-                                <li><a href="#">Hỏi đáp</a></li>
+                            	@foreach($netAll  as $item)
+                                <li><a href="{{URL::route('category.index',[$item->slug])}}">{{$item->name}}</a></li>
+                                @endforeach
+                                <li><a href="#">Tin tức</a></li>
                                 <li><a href="#">Liên hệ</a></li>
                             </ul>
                         </div>

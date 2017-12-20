@@ -99,7 +99,7 @@
 							@endif
 							</td>
 						<td class="text-center">{{$item->net_name}}</td>
-						<td class="text-center">{{$item->type_sim_names}}</td>
+						<td class="text-center">{!!$item->type_sim_names!!}</td>
 						<td class="text-center">{{Config::get('constant.type_sim')[$item->type_sim_name]}}</td>
 						<td class="text-center">{!!$item->description!!}</td>
 						<td class="text-center">

@@ -19,6 +19,8 @@ interface  NewsRepositoryInterface
 
     public function searchAndListInNews($title, $net, $status, $limit);
 
+    public function newsStatus($status);
+
 }
 
 ?>

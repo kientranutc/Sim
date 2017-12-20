@@ -2,12 +2,9 @@
             <div class="newquestion">
                 <h4><i class="glyphicon glyphicon-phone-alt"></i> HỖ TRỢ KHÁCH HÀNG</h4>
                 <div class="contact">
-                    <h6><strong>0981.80.80.80</strong></h6>
-                    <h6><strong>0981.80.80.80</strong></h6>
-                    <h6><strong>0981.80.80.80</strong></h6>
-                    <h6><strong>0981.80.80.80</strong></h6>
-                    <h6><strong>0981.80.80.80</strong></h6>
-                    <h6><strong>0981.80.80.80</strong></h6>
+                	@foreach($contact as $k=>$v)
+                    <h6><strong><a href="tel:{{$v}}">{{$v}}</a></strong></h6>
+                    @endforeach
                 </div>
             </div>
             <div class="newquestion">
@@ -33,11 +30,11 @@
                 <h4><i class="glyphicon glyphicon-star-empty"></i> Tin mới cập nhật</h4>
                 <div class="news-content">
                     <ul>
-                        <li><a href="">Tặng 50% thẻ nạp cho thuê bao trả trước đang hoạt động</a></li>
-                        <li><a href="">Tặng 50% thẻ nạp cho thuê bao trả trước đang hoạt động</a></li>
-                        <li><a href="">Tặng 50% thẻ nạp cho thuê bao trả trước đang hoạt động</a></li>
-                        <li><a href="">Tặng 50% thẻ nạp cho thuê bao trả trước đang hoạt động</a></li>
-                        <li><a href="">Tặng 50% thẻ nạp cho thuê bao trả trước đang hoạt động</a></li>
+                    @forelse($newsStatus as $item)
+                        <li><a href="">{{$item->title}}</a></li>
+                    @empty
+                    empty
+                    @endforelse
                     </ul>
                 </div>
             </div>

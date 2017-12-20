@@ -39,7 +39,7 @@ Cập nhật sim
 									<label class="control-label">Loại sim theo nhà mạng</label>
 										<select class="form-control input-sm" name="type_sim_id">
 											@forelse($dataTypeSim as $item)
-											<option value="{{$item->id}}" {{($dataEdit->type_sim_id==$item->id)?'selected':''}}>{{$item->name}}</option>
+											<option value="{{$item->id}}" {{($dataEdit->type_sim_id==$item->id)?'selected':''}}>{!!$item->name.'-'.$item->net_name!!}</option>
 											@empty
 												<option value="0"></option>
 											@endforelse

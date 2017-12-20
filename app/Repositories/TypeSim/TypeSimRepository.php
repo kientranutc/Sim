@@ -95,7 +95,18 @@ class TypeSimRepository implements TypeSimRepositoryInterface
         return TypeSim::where('id','<>',$id)
                     ->where('name', $name)
                     ->count();
+    }
 
+    public function getAllTypeSim()
+    {
+        return TypeSim::all();
+    }
+    public function getTypeSimForNet($net)
+    {
+        return TypeSim::select('type_sim.*','net.name as net_name')
+        ->join('net', 'net.id', '=', 'type_sim.net_id')
+        ->where('net.slug', $net)
+        ->get();
     }
 
 }

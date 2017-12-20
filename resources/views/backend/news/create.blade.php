@@ -8,7 +8,7 @@ Thêm mới tin tức
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
-				<form class="no-margin" id="formValidate1" action="{{URL::route('news.update',[$dataNes->id])}}" method="post">
+				<form class="no-margin" id="formValidate1" action="{{URL::route('news.create')}}" method="post">
 						 {{ csrf_field() }}
 					<div class="panel-heading">Thêm mới tin tức</div>
 					<div class="panel-body">

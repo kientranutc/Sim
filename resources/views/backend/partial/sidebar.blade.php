@@ -62,8 +62,8 @@
 									||(Route::currentRouteName()=='news.create')
 							    	||(Route::currentRouteName()=='news.update')
 								?'active':''}}"><a href="{{URL::route('news.index')}}"><span class="submenu-label"> <i class="fa fa-newspaper-o fa-lg" aria-hidden="true"></i> Tin tức</span></a></li>
-						<li class="{{(Route::currentRouteName()=='sim.index')
-								?'active':''}}"><a href="{{URL::route('sim.index')}}"><span class="submenu-label"> <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i> Đơn hàng</span></a></li>
+						<li class="{{(Route::currentRouteName()=='order.index')
+								?'active':''}}"><a href="{{URL::route('order.index')}}"><span class="submenu-label"> <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i> Đơn hàng</span></a></li>
 					</ul>
 				</div><!-- /main-menu -->
 			</div><!-- /sidebar-inner -->

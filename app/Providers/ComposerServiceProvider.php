@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('*', 'App\Http\ViewComposers\ViewNotificationComposers');
+        View::composer('frontend.*', 'App\Http\ViewComposers\ViewNotificationComposers');
     }
 
     /**

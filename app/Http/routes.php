@@ -14,11 +14,15 @@
  * frontend
  */
 //home
-Route::get('/','Frontend\HomeController@index');
+Route::get('','Frontend\HomeController@index');
 //order
-Route::get('/order',[
+Route::get('/order/{id}',[
         'as' => 'order.index',
         'uses' => 'Frontend\OrderController@index'
+]);
+Route::post('/order',[
+        'as' => 'order.process-order',
+        'uses' => 'Frontend\OrderController@processOrder'
 ]);
 /**
  * process login-logout
@@ -35,7 +39,13 @@ Route::get('logout', [
         'as' => 'logout',
         'uses' => 'Backend\AuthController@logout'
 ]);
-
+/**
+ * ------------------- Category ---------------------------
+ */
+Route::get('net/{slug}', [
+        'as' => 'category.index',
+        'uses' => 'Frontend\CategoryController@index'
+]);
 
 Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () {
         Route::get('logout', [
@@ -171,4 +181,12 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                             'uses' => 'Backend\NewsController@delete'
                     ]);
                 });
+                    //order
+                    Route::group(['prefix' => 'order'], function () {
+                        Route::get('/',[
+                                'as' =>'order.index',
+                                'uses' => 'Backend\OrderController@index'
+                        ]);
+
+                    });
     });

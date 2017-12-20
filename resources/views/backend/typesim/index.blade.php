@@ -34,7 +34,7 @@
 					@forelse($dataTypeSim as $item)
 					<tr>
     					<td class="text-center">{{++$stt}}</td>
-    					<td class="text-center">{{$item->name}}</td>
+    					<td class="text-center">{!!$item->name!!}</td>
     					<td class="text-center">{{$item->slug}}</td>
     					<td class="text-center"><img width="100px" height="100px" alt="" src="{{$item->image}}"></td>
     					<td class="text-center">{{$item->net_name}}</td>

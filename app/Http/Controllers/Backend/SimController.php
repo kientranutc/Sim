@@ -23,7 +23,7 @@ class SimController extends Controller
     }
     public function index(Request $request)
     {
-        $limit =1;
+        $limit =15;
         $net = $request->get('net', -1);
         $name = $request->get('name', '');
         $status = $request->get('status', '-1');

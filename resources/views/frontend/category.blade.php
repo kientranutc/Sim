@@ -14,15 +14,14 @@
                                     </a>
                                 </li>
                             @empty
-
                             @endforelse
                             </ul>
                         </div>
                     </div>
                     <div class="searchsim">
-                        <form method="get">
-                    	 <input type="hidden" name="net" value="{{Request::get('net',-1)}}">
+                    	<form method="get">
                     	 <input type="hidden" name="l" value="{{Request::get('l',-1)}}">
+                    	 <input type="hidden" name="p" value="{{Request::get('p',-1)}}">
                     	 <input type="hidden" name="d" value="{{Request::get('d',-1)}}">
                          <input type="text" placeholder="Nhập số sim cần tìm" id="txtsearchsim" name="n" value="{{Request::get('n','')}}">
                         <button type="submit" id="btnsearch">Tìm</button>
@@ -38,19 +37,6 @@
                     <div class="simfilter">
                         <div class="filter-name"> <label>Lọc theo:</label></div>
                         <input type="hidden" name="n" value="{{Request::get('n','')}}">
-                         <div class="navifil">
-                            <div class="form-group form-inline">
-                                <label for="sel1" class="filter-title">Nhà mạng:</label>
-                                <select class="form-control" id="sel1" name="net"  onchange="this.form.submit()">
-                                    <option value="-1">--Chọn--</option>
-                                    @forelse($dataNet as $item)
-                                    	 <option value="{{$item->id}}" {{(Request::get('net',-1)==$item->id)?'selected':''}}>{{$item->name}}</option>
-                                    @empty
-                                    empty
-                                    @endforelse
-                                </select>
-                            </div>
-                        </div>
                         <div class="navifil">
                             <div class="form-group form-inline">
                                 <label for="sel2" class="filter-title">Loại sim:</label>
@@ -62,7 +48,19 @@
                                     </select>
                             </div>
                         </div>
-
+                           <div class="navifil">
+                            <div class="form-group form-inline">
+                                <label for="sel1" class="filter-title">Giá:</label>
+                                <select class="form-control" id="sel1" name="p"  onchange="this.form.submit()">
+                                    <option value="-1">--Chọn--</option>
+                                    @forelse($priceSim as $item)
+                                    	  <option value="{{$item->price}}" {{(Request::get('p',-1)==$item->price)?'selected':''}}>{{number_format($item->price).'₫'}}</option>
+                                    @empty
+                                    	empty
+                                    @endforelse
+                                </select>
+                            </div>
+                        </div>
                         <div class="navifil">
                             <div class="form-group form-inline">
                                 <label for="sel3" class="filter-title">Đầu số:</label>
@@ -86,29 +84,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	@forelse($dataSim as $item)
+                               	@forelse($dataCategory as $item)
                                     <tr>
                                         <td class="phone-number">{{$item->name}}</td>
-                                        <td class="phone-price">{{number_format($item->price)."₫"}}</td>
+                                        <td class="phone-price">{{$item->price."₫"}}</td>
                                         <td class="phone-address"> {{$item->net_name}}</td>
                                         <td class="order-phone"><a href="{{URL::route('order.index',[$item->id])}}">Mua</a></td>
                                     </tr>
-                                   @empty
-                                   <tr>
-                                   <td colspan="4" class="text-center">Dữ liệu trống</td>
-                                   </tr>
-                                   @endforelse
-
+                               @empty
+                                    <tr>
+                                    	<td colspan="4" class="text-center">Dữ liệu trống</td>
+                                    </tr>
+                               @endforelse
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="pagination">
-                         {{
-                            $dataSim ->appends(array(
+                    <div class="paginations text-left">
+                        {{
+                            $dataCategory ->appends(array(
         						'n' => Request::get('n', ''),
-        						'net'	=> Request::get('net',-1),
         						'l'	=> Request::get('l',-1),
+        						'p' => Request::get('p',-1),
         						'd' => Request::get('d',-1),
                                 )
                             )->links()

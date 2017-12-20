@@ -17,6 +17,15 @@ interface SimRepositoryInterface{
     public function checkExitsNameInUpdate($id, $name);
 
     public function searchInListSim($net,$name ,$status, $limit);
+
+    public function getPriceForNet($net);
+
+    public function getListSimForNet($netSlug,$name, $typeSim, $price, $firstNumber, $limit);
+
+    public function getListSim($name, $net, $typeSim, $firstNumber, $limit);
+
+    public function getInfoSimWhenOrder($id);
+
 }
 
 ?>

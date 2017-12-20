@@ -437,11 +437,13 @@ header {
 .contact {
     padding: 9px 32px;
 }
-
-.contact h6 {
+.contact h6{
+	    margin-bottom: 5px;
+}
+.contact h6 strong a {
     color: red;
-    margin-bottom: 5px;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .news-content ul li {
@@ -451,4 +453,9 @@ header {
 
 .news-content ul li a {
     text-decoration: none;
+}
+
+.actived-type-sim {
+    border: 1px solid #ffa500;
+    background: #fffae0;
 }

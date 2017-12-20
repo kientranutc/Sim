@@ -17,6 +17,10 @@ interface  TypeSimRepositoryInterface
 
   public function checkExitsNameInUpdate($id, $name);
 
+  public function getAllTypeSim();
+
+  public function getTypeSimForNet($net);
+
 }
 
 ?>

@@ -14,8 +14,10 @@ class NewsRepository implements NewsRepositoryInterface
         $news =new News();
         if(isset($data['title'])) {
             $news->title = $data['title'];
+            $news->slug = str_slug( $data['title'], '-');
         }else{
             $news->title = '';
+            $news->slug = '';
         }
         if(isset($data['image'])) {
             $news->image = $data['image'];
@@ -46,8 +48,10 @@ class NewsRepository implements NewsRepositoryInterface
         if($news) {
             if(isset($data['title'])) {
                 $news->title = $data['title'];
+                $news->slug = str_slug( $data['title'], '-');
             }else{
                 $news->title = '';
+                $news->slug = '';
             }
             if(isset($data['image'])) {
                 $news->image = $data['image'];
@@ -115,6 +119,13 @@ class NewsRepository implements NewsRepositoryInterface
             $query->where('news.status', $status);
         }
         return $query->orderBy('news.created_at', 'DESC')->paginate($limit);
+    }
+    /**
+     * --------------------- frontend-------------------------------------
+     */
+    public function newsStatus($status)
+    {
+        return News::where('status', $status)->get();
     }
 }
 
