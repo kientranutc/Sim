@@ -79,56 +79,24 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="fa fa-bell fa-lg"></i>
-						<span class="notification-label bounceIn animation-delay6">5</span>
+						<span class="notification-label bounceIn animation-delay6">{{count($orderNew)}}</span>
 					</a>
 					<ul class="dropdown-menu notification dropdown-3">
-						<li><a href="#">You have 5 new notifications</a></li>
+						<li><a href="#">Có {{count($orderNew)}} đơn hàng</a></li>
+						@forelse($orderNew as $item)
 						<li>
 							<a href="#">
 								<span class="notification-icon bg-warning">
-									<i class="fa fa-warning"></i>
+									<i class="fa fa-shopping-bag"></i>
 								</span>
-								<span class="m-left-xs">Server #2 not responding.</span>
-								<span class="time text-muted">Just now</span>
+								<span class="m-left-xs">Sim: {{$item->sim_name}}</span>
+								<span class="time text-muted">{{$helper::calBetweenDate($item->date_order)}}</span>
 							</a>
 						</li>
-						<li>
-							<a href="#">
-								<span class="notification-icon bg-success">
-									<i class="fa fa-plus"></i>
-								</span>
-								<span class="m-left-xs">New user registration.</span>
-								<span class="time text-muted">2m ago</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="notification-icon bg-danger">
-									<i class="fa fa-bolt"></i>
-								</span>
-								<span class="m-left-xs">Application error.</span>
-								<span class="time text-muted">5m ago</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="notification-icon bg-success">
-									<i class="fa fa-usd"></i>
-								</span>
-								<span class="m-left-xs">2 items sold.</span>
-								<span class="time text-muted">1hr ago</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="notification-icon bg-success">
-									<i class="fa fa-plus"></i>
-								</span>
-								<span class="m-left-xs">New user registration.</span>
-								<span class="time text-muted">1hr ago</span>
-							</a>
-						</li>
-						<li><a href="#">View all notifications</a></li>
+						@empty
+						<li>Chưa có đơn hàng</li>
+						@endforelse
+						<li><a href="{{URL::route('order.index')}}">Hiển thị đơn hàng</a></li>
 					</ul>
 				</li>
 				<li class="profile dropdown">

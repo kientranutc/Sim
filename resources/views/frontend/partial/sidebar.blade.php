@@ -9,21 +9,16 @@
             </div>
             <div class="newquestion">
                 <h4><i class="glyphicon glyphicon-shopping-cart"></i> Đơn đặt hàng sim số đẹp</h4>
+                @forelse($orderNew as $item)
                 <div class="newdh">
-                    <strong class="red"><strong>Số sim: 08x8.x00x313</strong></strong>
-                    <p class="list-group-item-text font-11">Thời gian đặt: 12:39:09 14/12/2017</p>
-                    <p class="list-group-item-text font-13">Khách đặt sim: mai văn chính</p>
+                    <strong class="red"><strong>Số sim: {{$helper::formatPhoneNumber($item->sim_name)}}</strong></strong>
+                    <p class="list-group-item-text font-11">Thời gian đặt: {{date_format(date_create($item->date_order),'s:i:H d-m-Y')}}</p>
+                    <p class="list-group-item-text font-13">Khách đặt sim: {{$item->customer_name}}</p>
                 </div>
-                <div class="newdh">
-                    <strong class="red"><strong>Số sim: 08x8.x00x313</strong></strong>
-                    <p class="list-group-item-text font-11">Thời gian đặt: 12:39:09 14/12/2017</p>
-                    <p class="list-group-item-text font-13">Khách đặt sim: mai văn chính</p>
-                </div>
-                <div class="newdh">
-                    <strong class="red"><strong>Số sim: 08x8.x00x313</strong></strong>
-                    <p class="list-group-item-text font-11">Thời gian đặt: 12:39:09 14/12/2017</p>
-                    <p class="list-group-item-text font-13">Khách đặt sim: mai văn chính</p>
-                </div>
+                @empty
+                Dữ liệu trống
+                @endforelse
+
             </div>
 
             <div class="newquestion">

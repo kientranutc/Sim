@@ -41,9 +41,13 @@ class OrderRepository implements  OrderRepositoryInterface
        $order =Order::find($id);
        if($order){
            if(isset($data['status'])) {
-            $order->status = $data['status'];
+            if($data['status']==1){
+                $order->status = 0;
+            }else{
+                $order->status = 1;
+            }
            }
-           $order->save();
+           return $order->save();
        }else{
            return false;
        }
@@ -53,14 +57,10 @@ class OrderRepository implements  OrderRepositoryInterface
     {
         return Order::find($id);
     }
-
-    public function delete($id)
-    {
-
-    }
     public function listAndSearchOrder($name, $status, $limit)
     {
-        $query = Order::select('order.*','sim.name as sim_name', 'customer.name as customer_name')
+        $query = Order::select('order.*','sim.name as sim_name', 'customer.name as customer_name', 'customer.phone as customer_phone'
+            , 'customer.cmnd as customer_cmnd', 'customer.address as customer_address')
         ->join('sim', 'sim.id', '=', 'order.sim_id')
         ->join('customer', 'customer.id', '=', 'order.customer_id');
         if($name != ''){
@@ -72,7 +72,18 @@ class OrderRepository implements  OrderRepositoryInterface
         return  $query->orderBy('order.created_at', 'DESC')->paginate($limit);
 
     }
+
+    public function getOrderNew($limit)
+    {
+        return Order::select('order.*','sim.name as sim_name', 'customer.name as customer_name', 'customer.phone as customer_phone'
+            , 'customer.cmnd as customer_cmnd', 'customer.address as customer_address')
+            ->join('sim', 'sim.id', '=', 'order.sim_id')
+            ->join('customer', 'customer.id', '=', 'order.customer_id')
+            ->orderBy('order.date_order', 'DESC')
+            ->take($limit)
+            ->get();
+
+    }
+
 }
-
-
 ?>

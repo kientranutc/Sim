@@ -11,7 +11,7 @@ interface  OrderRepositoryInterface
 
   public function find($id);
 
-  public function delete($id);
-
   public function listAndSearchOrder($name, $status, $limit);
+
+  public function getOrderNew($limit);
 }

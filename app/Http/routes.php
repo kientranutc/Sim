@@ -187,6 +187,10 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                                 'as' =>'order.index',
                                 'uses' => 'Backend\OrderController@index'
                         ]);
+                        Route::get('/update-status-order/{id}/{status}',[
+                                'as' =>'order.update-status-order',
+                                'uses' => 'Backend\OrderController@updateStatusOrder'
+                        ]);
 
                     });
     });
