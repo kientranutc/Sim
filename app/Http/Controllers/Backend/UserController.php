@@ -7,7 +7,8 @@ use App\Repositories\Users\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\CreateUserRequest;
-
+use App\Http\Requests\EditProfileRequest;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function __construct(UserRepositoryInterface $user)
@@ -47,5 +48,21 @@ class UserController extends Controller
         }else{
             return Redirect::back()->withErrors('User is not exists');
         }
+    }
+
+    public function editProfile()
+    {
+        return view('backend.users.edit');
+    }
+
+    public function processEditProfile(EditProfileRequest $request)
+    {
+       $dataRequest = $request->only(['name', 'fullname', 'password']);
+       $userId = Auth::user()->id;
+       if($this->user->update($dataRequest, $userId)) {
+           return Redirect::back()->withSuccess('Cập nhật thành công');
+       } else {
+           return Redirect::back()->withErrors('Cập nhật thất bại');
+       }
     }
 }

@@ -42,7 +42,25 @@ class UserRepository implements  UserRepositoryInterface
 
     public function update($data, $id)
     {
-
+        $user = User::find($id);
+        if($user) {
+            if(isset($data['name'])){
+                $user->name = $data['name'];
+            }else{
+                $user->name ='';
+            }
+            if(isset($data['fullname'])){
+                $user->fullname = $data['fullname'];
+            }else{
+                $user->fullname ='';
+            }
+            if(isset($data['password']) && ! empty($data['password'])){
+                $user->password = bcrypt($data['password']);
+            }
+            return $user->save();
+        } else {
+            return false;
+        }
     }
 
     public function find($id)

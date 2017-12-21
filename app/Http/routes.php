@@ -66,6 +66,15 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                     'as' =>'users.create',
                     'uses' => 'Backend\UserController@create'
             ]);
+            Route::get('/edit-profile',[
+                    'as' =>'users.edit-profile',
+                    'uses' => 'Backend\UserController@editProfile'
+            ]);
+
+            Route::post('/edit-profile',[
+                    'as' =>'users.edit-profile',
+                    'uses' => 'Backend\UserController@processEditProfile'
+            ]);
             Route::post('/create',[
                     'as' =>'users.createpost',
                     'uses' => 'Backend\UserController@processCreateUser'

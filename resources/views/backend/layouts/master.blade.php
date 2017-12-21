@@ -114,7 +114,7 @@
 								</div>
 							</a>
 						</li>
-						<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Edit profile</a></li>
+						<li><a tabindex="-1" href="{{URL::route('users.edit-profile')}}" class="main-link"><i class="fa fa-edit fa-lg"></i> Edit profile</a></li>
 						<li class="divider"></li>
 						<li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
 					</ul>

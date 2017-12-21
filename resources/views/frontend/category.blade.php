@@ -35,7 +35,7 @@
                     </div>
                     <form method="get">
                     <div class="simfilter">
-                        <div class="filter-name"> <label>Lọc theo:</label></div>
+                         <div class="filter-name"> <label>Lọc theo:</label></div>
                         <input type="hidden" name="n" value="{{Request::get('n','')}}">
                         <div class="navifil">
                             <div class="form-group form-inline">
