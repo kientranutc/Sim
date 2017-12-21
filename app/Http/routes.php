@@ -17,7 +17,7 @@
 Route::get('','Frontend\HomeController@index');
 //order
 Route::get('/order/{id}',[
-        'as' => 'order.index',
+        'as' => 'order-frontend.index',
         'uses' => 'Frontend\OrderController@index'
 ]);
 Route::post('/order',[

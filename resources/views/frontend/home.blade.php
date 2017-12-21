@@ -91,7 +91,7 @@
                                         <td class="phone-number">{{$item->name}}</td>
                                         <td class="phone-price">{{number_format($item->price)."₫"}}</td>
                                         <td class="phone-address"> {{$item->net_name}}</td>
-                                        <td class="order-phone"><a href="{{URL::route('order.index',[$item->id])}}">Mua</a></td>
+                                        <td class="order-phone"><a href="{{URL::route('order-frontend.index',[$item->id])}}">Mua</a></td>
                                     </tr>
                                    @empty
                                    <tr>
