@@ -36,15 +36,15 @@ Thêm mới sim
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('type_sim_id'))?"has-error":""}}">
-									<label class="control-label">Loại sim theo nhà mạng</label>
-										<select class="form-control input-sm" name="type_sim_id">
+									<label class="control-label">Nhà mạng</label>
+										<select class="form-control input-sm" name="net_id">
 											@forelse($dataTypeSim as $item)
-											<option value="{{$item->id}}" {{(old('type_sim_id')==$item->id)?'selected':''}}>{!!$item->name.'-'.$item->net_name!!}</option>
+											<option value="{{$item->id}}" {{(old('net_id')==$item->id)?'selected':''}}>{!!$item->name!!}</option>
 											@empty
 												<option value="0"></option>
 											@endforelse
 										</select>
-										<p class="text-danger"> {{$errors->first('type_sim_name')}}</p>
+										<p class="text-danger"> {{$errors->first('net_id')}}</p>
 								</div>
 								<!-- /form-group -->
 							</div>

@@ -19,7 +19,7 @@ class CreateSimTable extends Migration
             $table->float('price');
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('first_number');
-            $table->integer('type_sim_id');
+            $table->integer('net_id');
             $table->integer('type_sim_name');
             $table->text('description');
             $table->timestamps();

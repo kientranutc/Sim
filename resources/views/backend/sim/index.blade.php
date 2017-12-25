@@ -62,6 +62,7 @@
 				</div>
 				<div class="panel-heading">
 				</div>
+				<div class="table-responsive">
 				<table
 					class="table table-bordered table-condensed table-hover table-striped">
 					<thead>
@@ -72,7 +73,6 @@
 							<th class="text-center">Trạng thái sim</th>
 							<th class="text-center">Sim 10/11 Số</th>
 							<th class="text-center">Nhà mạng</th>
-							<th class="text-center">Loại sim theo nhà mạng</th>
 							<th class="text-center">Loại sim theo phong thủy</th>
 							<th class="text-center">Mô tả</th>
 							<th class="text-center">Action</th>
@@ -82,7 +82,7 @@
 					@forelse($dataSim as $item)
 						<tr>
 						<td class="text-center">{{++$stt}}</td>
-						<td class="text-center">{{$item->sim_name}}</td>
+						<td class="text-center">{{$helper::formatPhoneNumber($item->name)}}</td>
 						<td class="text-center">{{number_format($item->price)}}đ</td>
 						<td width="10%" class="text-center">
 							@if($item->status==1)
@@ -99,7 +99,6 @@
 							@endif
 							</td>
 						<td class="text-center">{{$item->net_name}}</td>
-						<td class="text-center">{!!$item->type_sim_names!!}</td>
 						<td class="text-center">{{Config::get('constant.type_sim')[$item->type_sim_name]}}</td>
 						<td class="text-center">{!!$item->description!!}</td>
 						<td class="text-center">
@@ -115,6 +114,7 @@
 
 					</tbody>
 				</table>
+			</div>
 			</div>
 			<div class="page-right padding-md text-right">
                 {{

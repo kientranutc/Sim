@@ -33,10 +33,10 @@ class SimRepository implements  SimRepositoryInterface
        }else{
            $sim->first_number = 0;
        }
-       if(isset($data['type_sim_id'])) {
-           $sim->type_sim_id = $data['type_sim_id'];
+       if(isset($data['net_id'])) {
+           $sim->net_id = $data['net_id'];
        }else{
-           $sim->type_sim_id = 0;
+           $sim->net_id = 0;
        }
        if(isset($data['type_sim_name'])) {
            $sim->type_sim_name = $data['type_sim_name'];
@@ -75,10 +75,10 @@ class SimRepository implements  SimRepositoryInterface
             }else{
                 $sim->first_number = 0;
             }
-            if(isset($data['type_sim_id'])) {
-                $sim->type_sim_id = $data['type_sim_id'];
+            if(isset($data['net_id'])) {
+                $sim->net_id = $data['net_id'];
             }else{
-                $sim->type_sim_id = 0;
+                $sim->net_id = 0;
             }
             if(isset($data['type_sim_name'])) {
                 $sim->type_sim_name = $data['type_sim_name'];
@@ -125,9 +125,8 @@ class SimRepository implements  SimRepositoryInterface
     }
     public function searchInListSim($net,$name ,$status, $limit)
     {
-        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_names', 'net.name as net_name')
-        ->join('net', 'net.id', '=', 'type_sim.net_id')
-        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id');
+        $result = Sim::select('sim.*','net.name as net_name')
+        ->join('net', 'net.id', '=', 'sim.net_id');
         if($net!=-1){
              $result->where('net.id','=', $net);
         }
@@ -141,18 +140,16 @@ class SimRepository implements  SimRepositoryInterface
     }
     public function getPriceForNet($net)
     {
-        $result = TypeSim::select('sim.price' )
-        ->join('net', 'net.id', '=', 'type_sim.net_id')
-        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id')
+        $result =Sim::select('sim.price' )
+        ->join('net', 'net.id', '=', 'sim.net_id')
         ->where('net.slug', $net);
         return  $result->orderBy('sim.created_at', 'ASC')->distinct()->get();
     }
 
     public function getListSimForNet($netSlug,$name, $typeSim, $price, $firstNumber, $limit)
     {
-        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_names', 'net.name as net_name')
-        ->join('net', 'net.id', '=', 'type_sim.net_id')
-        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id')
+        $result = Sim::select('sim.*', 'net.name as net_name')
+        ->join('net', 'net.id', '=', 'Sim.net_id')
         ->where('net.slug', $netSlug);
         if($name!=''){
             $result->where('sim.name','like', "%$name%");
@@ -170,9 +167,8 @@ class SimRepository implements  SimRepositoryInterface
     }
     public function getListSim($name, $net, $typeSim, $firstNumber, $limit)
     {
-        $result = TypeSim::select('sim.*', 'sim.name as sim_name','type_sim.name as type_sim_names', 'net.name as net_name')
-        ->join('net', 'net.id', '=', 'type_sim.net_id')
-        ->join('sim', 'sim.type_sim_id', '=', 'type_sim.id');
+        $result = Sim::select('sim.*','net.name as net_name')
+        ->join('net', 'net.id', '=', 'sim.net_id');
         if($name!=''){
             $result->where('sim.name','like', "%$name%");
         }
@@ -189,8 +185,7 @@ class SimRepository implements  SimRepositoryInterface
     }
     public function getInfoSimWhenOrder($id)
     {
-        return Sim::select('sim.*', 'type_sim.name as name_type_sim')
-        ->join('type_sim', 'type_sim.id', '=', 'sim.type_sim_id')
+        return Sim::select('sim.*')
         ->where('sim.id', $id)
         ->first();
     }

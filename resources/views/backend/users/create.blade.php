@@ -1,5 +1,5 @@
-@extends('backend.layouts.master') @section('title') create user
-@endsection @section('breadcrumb') create user @endsection
+@extends('backend.layouts.master') @section('title') Thêm mới người dùng
+@endsection @section('breadcrumb') Thêm mới người dùng @endsection
 @section('content')
 <div class="padding-md">
 	<div class="row">
@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<form class="no-margin" id="formValidate1" action="{{URL::route('users.createpost')}}" method="post">
 						 {{ csrf_field() }}
-					<div class="panel-heading">Add User</div>
+					<div class="panel-heading">Thêm mới người dùng</div>
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-6">
@@ -20,8 +20,8 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('fullname'))?"has-error":""}}">
-									<label class="control-label">Fullname</label> <input
-										type="text" placeholder="Fullname" name="fullname" value="{{old('fullname')}}"
+									<label class="control-label">Họ và tên</label> <input
+										type="text" placeholder="Họ và tên" name="fullname" value="{{old('fullname')}}"
 										class="form-control input-sm" data-required="true"
 										>
 										<p class="text-danger"> {{$errors->first('fullname')}}</p>
@@ -39,8 +39,8 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('password'))?"has-error":""}}">
-									<label class="control-label">Password</label> <input
-										type="password" placeholder="Password" name="password"
+									<label class="control-label">Mật khẩu</label> <input
+										type="password" placeholder="Mật khẩu" name="password"
 										class="form-control input-sm" id="password"
 										data-required="true">
 										<p class="text-danger"> {{$errors->first('password')}}</p>
@@ -50,8 +50,8 @@
 							<!-- /.col -->
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('confirm_password'))?"has-error":""}}">
-									<label class="control-label">Confirm Password</label> <input
-										type="password" name="confirm_password" placeholder="Confirm Password"
+									<label class="control-label">Nhập lại mật khẩu</label> <input
+										type="password" name="confirm_password" placeholder="Nhập lại mật khẩu"
 										class="form-control input-sm"
 										data-required="true">
 										<p class="text-danger"> {{$errors->first('confirm_password')}}</p>

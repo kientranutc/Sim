@@ -20,9 +20,17 @@ Route::get('/order/{id}',[
         'as' => 'order-frontend.index',
         'uses' => 'Frontend\OrderController@index'
 ]);
+Route::get('/order-now',[
+        'as' => 'order-frontend.order-now',
+        'uses' => 'Frontend\OrderController@orderNow'
+]);
 Route::post('/order',[
         'as' => 'order.process-order',
         'uses' => 'Frontend\OrderController@processOrder'
+]);
+Route::post('/order-now',[
+        'as' => 'order.process-order-now',
+        'uses' => 'Frontend\OrderController@processOrderNow'
 ]);
 /**
  * process login-logout
@@ -38,6 +46,20 @@ Route::post('login', [
 Route::get('logout', [
         'as' => 'logout',
         'uses' => 'Backend\AuthController@logout'
+]);
+//news
+Route::get('/tin-tuc', [
+        'as' => 'frontend-news.index',
+        'uses' => 'Frontend\NewsController@index'
+]);
+Route::get('/tin-tuc/{slug}.html', [
+        'as' => 'frontend-news.show-detail',
+        'uses' => 'Frontend\NewsController@showDetail'
+]);
+//introduce
+Route::get('/gioi-thieu-goi-cuoc', [
+        'as' => 'frontend-introduce.index',
+        'uses' => 'Frontend\IntroduceController@index'
 ]);
 /**
  * ------------------- Category ---------------------------
@@ -202,4 +224,31 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                         ]);
 
                     });
+                  // introduce
+                Route::group(['prefix' => 'introduce'], function () {
+                       Route::get('/',[
+                              'as' =>'introduce.index',
+                              'uses' => 'Backend\IntroduceController@index'
+                       ]);
+                       Route::get('/create',[
+                               'as' =>'introduce.create',
+                               'uses' => 'Backend\IntroduceController@createForm'
+                       ]);
+                       Route::post('/create',[
+                               'as' =>'introduce.create',
+                               'uses' => 'Backend\IntroduceController@processCreateForm'
+                       ]);
+                       Route::get('/update/{id}',[
+                               'as' =>'introduce.update',
+                               'uses' => 'Backend\IntroduceController@updateForm'
+                       ]);
+                       Route::post('/update/{id}',[
+                               'as' =>'introduce.update',
+                               'uses' => 'Backend\IntroduceController@processUpdateForm'
+                       ]);
+                       Route::get('/delete/{id}',[
+                               'as' =>'introduce.delete',
+                               'uses' => 'Backend\IntroduceController@delete'
+                       ]);
+                });
     });

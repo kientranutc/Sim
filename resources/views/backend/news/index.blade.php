@@ -62,6 +62,7 @@
 				</div>
 				<div class="panel-heading">
 				</div>
+				<div class="table-responsive">
 				<table
 					class="table table-bordered table-condensed table-hover table-striped">
 					<thead>
@@ -102,6 +103,7 @@
 					@endforelse
 					</tbody>
 				</table>
+				</div>
 			</div>
 			<div class="page-right padding-md text-right">
 					 {{

@@ -41,6 +41,7 @@
 				</div>
 				<div class="panel-heading">
 				</div>
+				<div class="table-responsive">
 				<table
 					class="table table-bordered table-condensed table-hover table-striped">
 					<thead>
@@ -67,7 +68,7 @@
 							<td width="10%" class="text-center">{{$item->customer_phone}}</td>
 							<td width="10%" class="text-center">{{$item->customer_cmnd}}</td>
 							<td width="10%" class="text-center">{{$item->customer_address}}</td>
-							<td width="15%" class="text-center">{{number_format($item->total)}}</td>
+							<td width="15%" class="text-center">{{number_format($item->total).'đ'}}</td>
 							<td width="10%" class="text-center">
 							@if($item->status==1)
 							<span class="badge badge-success">Đã giao hàng</span>
@@ -85,6 +86,7 @@
 
 					</tbody>
 				</table>
+				</div>
 			</div>
 			<div class="page-right padding-md text-right">
 					 {{

@@ -61,7 +61,7 @@ class OrderRepository implements  OrderRepositoryInterface
     {
         $query = Order::select('order.*','sim.name as sim_name', 'customer.name as customer_name', 'customer.phone as customer_phone'
             , 'customer.cmnd as customer_cmnd', 'customer.address as customer_address')
-        ->join('sim', 'sim.id', '=', 'order.sim_id')
+        ->leftJoin('sim', 'sim.id', '=', 'order.sim_id')
         ->join('customer', 'customer.id', '=', 'order.customer_id');
         if($name != ''){
             $query->where('sim.name', 'like', "%$name%");
@@ -77,7 +77,7 @@ class OrderRepository implements  OrderRepositoryInterface
     {
         return Order::select('order.*','sim.name as sim_name', 'customer.name as customer_name', 'customer.phone as customer_phone'
             , 'customer.cmnd as customer_cmnd', 'customer.address as customer_address')
-            ->join('sim', 'sim.id', '=', 'order.sim_id')
+            ->leftJoin('sim', 'sim.id', '=', 'order.sim_id')
             ->join('customer', 'customer.id', '=', 'order.customer_id')
             ->orderBy('order.date_order', 'DESC')
             ->take($limit)

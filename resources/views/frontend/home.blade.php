@@ -3,22 +3,6 @@
 @endsection
  @section('content')
  <div class="page-left ">
-                    <div class="simwrap">
-                        <h2 class="titlesimcard">Mua sim nghe gọi, 3G, 4G</h2>
-                        <div class="simpackage">
-                            <ul>
-                            @forelse($dataTypeSim as $item)
-                                <li>
-                                    <a href="">
-                                       {!!$item->name!!}
-                                    </a>
-                                </li>
-                            @empty
-
-                            @endforelse
-                            </ul>
-                        </div>
-                    </div>
                     <div class="searchsim">
                         <form method="get">
                     	 <input type="hidden" name="net" value="{{Request::get('net',-1)}}">
@@ -124,9 +108,10 @@
                         <div class="titlesimcard">Thông tin nhà mạng</div>
                         <ul>
                             <li>
-                                <div>
-                                    <i class="iconsimcard-vt"></i> Tổng đài 24/24<br>
-                                    <strong>1800.8098 - 1800.8168</strong>
+                                <div class="content-net">
+                                    <i class="iconsimcard-vt"></i>Tổng đài 24/24<br>
+                                    <strong>1800.8098 - 1800.8168</strong><br>
+                                    <a href="{{URL::route('order-frontend.order-now')}}" class="add-cart-now"><strong>Mua Ngay</strong></a>
                                 </div>
                                 <div>
                                     Đường dây nóng:<br>
@@ -138,9 +123,10 @@
                                 </div>
                             </li>
                             <li>
-                                <div>
+                                <div class="content-net">
                                     <i class="iconsimcard-mb"></i> Tổng đài 24/24<br>
                                     <strong>1800.1090 - 9090</strong>
+                                     <a href="{{URL::route('order-frontend.order-now')}}" class="add-cart-now"><strong>Mua Ngay</strong></a>
                                 </div>
                                 <div>
                                     Đường dây nóng:<br>
@@ -152,9 +138,10 @@
                                 </div>
                             </li>
                             <li>
-                                <div>
+                                <div class="content-net">
                                     <i class="iconsimcard-vn"></i> Tổng đài 24/24<br>
                                     <strong>1800.1091 - 9191</strong>
+                                     <a href="{{URL::route('order-frontend.order-now')}}" class="add-cart-now"><strong>Mua Ngay</strong></a>
                                 </div>
                                 <div>
                                     Đường dây nóng:<br>

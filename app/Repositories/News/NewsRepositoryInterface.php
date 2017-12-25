@@ -21,6 +21,8 @@ interface  NewsRepositoryInterface
 
     public function newsStatus($status);
 
+    public function showNews($limit);
+
 }
 
 ?>

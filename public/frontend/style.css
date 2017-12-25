@@ -459,3 +459,43 @@ header {
     border: 1px solid #ffa500;
     background: #fffae0;
 }
+.content-net {
+	position: relative;
+}
+.add-cart-now {
+    position: absolute;
+    top: 0px;
+    right: 6px;
+    text-decoration: none;
+}
+.wrapothers {
+    display: block;
+    overflow: hidden;
+    padding: 20px 10px 10px 10px;
+}
+.item-news li:last-child{
+	border-bottom: none;
+}
+.item-news li a{
+	display: block;
+	overflow: hidden;
+}
+.item-news li  img, .item-news li .item-news-right{
+	float:left;
+}
+.item-news li {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.item-news-right {
+    margin-left: 13px;
+    margin-top: -3px;
+}
+.item-news li img{
+	width: 100px;
+	height: 100px;
+}
+.content-orders {
+    background: #ededed;
+    padding: 10px 5px;
+}

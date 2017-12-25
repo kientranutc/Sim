@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     <link href="{{asset('frontend/assets/img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    	<link href="{{asset('backend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('frontend/assets/carousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/carousel/owl.theme.default.min.css')}}">
@@ -28,15 +29,15 @@
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                         </button>
-                            <a class="navbar-brand" href="/"> SIM <strong>SỐ</strong> ĐẸP</a>
+                            <a class="navbar-brand" href="/"> SIM <strong>4G</strong></a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
                             	@foreach($netAll  as $item)
                                 <li><a href="{{URL::route('category.index',[$item->slug])}}">{{$item->name}}</a></li>
                                 @endforeach
-                                <li><a href="#">Tin tức</a></li>
-                                <li><a href="#">Liên hệ</a></li>
+                                <li><a href="{{URL::route('frontend-news.index')}}">Tin tức</a></li>
+                                <li><a href="{{URL::route('frontend-introduce.index')}}">Giới thiệu gói cước</a></li>
                             </ul>
                         </div>
                     </div>
@@ -48,7 +49,13 @@
 @include('frontend.partial.banner')
 <section class="content">
     <div class="container">
+         <div class="row">
+           <div class="col-md-12">
+            @include('frontend.layouts.message')
+           </div>
+         </div>
         <div clas="row">
+
           <aside class="col-md-8">
           	@yield('content')
         </aside>

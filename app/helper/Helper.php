@@ -9,9 +9,9 @@ class Helper {
 
     public static function  calBetweenDate($date)
     {
-        date_default_timezone_set("Asia/Bangkok");
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $OldDate = new DateTime($date);
-        $now = new DateTime(Date('Y-m-d H:m:s'));
+        $now = new DateTime(Date('Y-m-d H:i:s'));
         $calDate = $OldDate->diff($now);
 
         if($calDate->y!=0){
@@ -42,14 +42,14 @@ class Helper {
             $nextThree = substr($phoneNumber, -7, 3);
             $lastFour = substr($phoneNumber, -4, 4);
 
-            $phoneNumber = '+'.$countryCode.' ('.$areaCode.') '.$nextThree.'-'.$lastFour;
+            $phoneNumber = '+'.$countryCode.' '.$areaCode.'.'.$nextThree.'.'.$lastFour;
         }
         else if(strlen($phoneNumber) == 10) {
             $areaCode = substr($phoneNumber, 0, 3);
             $nextThree = substr($phoneNumber, 3, 3);
             $lastFour = substr($phoneNumber, 6, 4);
 
-            $phoneNumber = '('.$areaCode.') '.$nextThree.'-'.$lastFour;
+            $phoneNumber = $areaCode.'.'.$nextThree.'.'.$lastFour;
         }
         else if(strlen($phoneNumber) == 7) {
             $nextThree = substr($phoneNumber, 0, 3);

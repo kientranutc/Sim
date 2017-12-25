@@ -89,7 +89,7 @@
 								<span class="notification-icon bg-warning">
 									<i class="fa fa-shopping-bag"></i>
 								</span>
-								<span class="m-left-xs">Sim: {{$item->sim_name}}</span>
+								<span class="m-left-xs">Sim: {{($item->sim_name=='')?$item->customer_name:$item->sim_name}}</span>
 								<span class="time text-muted">{{$helper::calBetweenDate($item->date_order)}}</span>
 							</a>
 						</li>
@@ -114,9 +114,9 @@
 								</div>
 							</a>
 						</li>
-						<li><a tabindex="-1" href="{{URL::route('users.edit-profile')}}" class="main-link"><i class="fa fa-edit fa-lg"></i> Edit profile</a></li>
+						<li><a tabindex="-1" href="{{URL::route('users.edit-profile')}}" class="main-link"><i class="fa fa-edit fa-lg"></i> Sửa thông tin cá nhân</a></li>
 						<li class="divider"></li>
-						<li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
+						<li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i> Đăng xuất</a></li>
 					</ul>
 				</li>
 			</ul>

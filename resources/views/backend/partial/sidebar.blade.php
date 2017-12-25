@@ -24,6 +24,7 @@
 				</div><!-- /user-block -->
 				<div class="main-menu">
 					<ul>
+					   @if(Auth::user()->is_admin==1)
 						<li class="openable open {{(Route::currentRouteName()=='users.index')
 									||(Route::currentRouteName()=='users.create')
 						?'active':''}}">
@@ -40,20 +41,14 @@
 									||(Route::currentRouteName()=='net.create')
 									|| (Route::currentRouteName()=='net.edit')
 								?'active':''}}"><a href="{{URL::route('users.index')}}"><span class="submenu-label">Quản lý người sử dụng</span></a></li>
-								<li class="{{(Route::currentRouteName()=='users.index')
-									||(Route::currentRouteName()=='net.create')
-									|| (Route::currentRouteName()=='net.edit')
-								?'active':''}}"><a href="{{URL::route('users.index')}}"><span class="submenu-label">Quản lý quyền truy cập</span></a></li>
 							</ul>
 						</li>
+						@endif
 						<li class="{{(Route::currentRouteName()=='net.index')
 									||(Route::currentRouteName()=='net.create')
 									|| (Route::currentRouteName()=='net.edit')
 								?'active':''}}"><a href="{{URL::route('net.index')}}"><span class="submenu-label"> <i class="fa fa-random fa-lg" aria-hidden="true"></i> Nhà mạng</span></a></li>
-						<li class="{{(Route::currentRouteName()=='type-sim.index')
-									|| (Route::currentRouteName()=='type-sim.create')
-									|| (Route::currentRouteName()=='type-sim.update')
-								?'active':''}}"><a href="{{URL::route('type-sim.index')}}"><span class="submenu-label"> <i class="fa fa-server fa-lg" aria-hidden="true"></i> Loại Sim</span></a></li>
+
 						<li class="{{(Route::currentRouteName()=='sim.index')
 									|| (Route::currentRouteName()=='sim.create')
 									|| (Route::currentRouteName()=='sim.update')
@@ -64,6 +59,10 @@
 								?'active':''}}"><a href="{{URL::route('news.index')}}"><span class="submenu-label"> <i class="fa fa-newspaper-o fa-lg" aria-hidden="true"></i> Tin tức</span></a></li>
 						<li class="{{(Route::currentRouteName()=='order.index')
 								?'active':''}}"><a href="{{URL::route('order.index')}}"><span class="submenu-label"> <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i> Đơn hàng</span></a></li>
+						<li class="{{(Route::currentRouteName()=='introduce.index')
+								|| (Route::currentRouteName()=='introduce.create')
+								|| (Route::currentRouteName()=='introduce.update')
+								?'active':''}}"><a href="{{URL::route('introduce.index')}}"><span class="submenu-label"> <i class="fa fa-info-circle" aria-hidden="true"></i> Giới thiệu gói cước</span></a></li>
 					</ul>
 				</div><!-- /main-menu -->
 			</div><!-- /sidebar-inner -->

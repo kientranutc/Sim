@@ -10,6 +10,7 @@ use App\Repositories\Net\NetRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UpdateSimRequest;
+use App\helper\Helper;
 
 
 class SimController extends Controller
@@ -24,38 +25,39 @@ class SimController extends Controller
     public function index(Request $request)
     {
         $limit =15;
+        $helper = new Helper();
         $net = $request->get('net', -1);
         $name = $request->get('name', '');
         $status = $request->get('status', '-1');
         $stt = ($request->get('page', 1)-1)*$limit;
         $dataNet = $this->net->all();
         $dataSim = $this->sim->searchInListSim($net, $name, $status, $limit);
-        return view('backend.sim.index', compact('stt', 'dataSim','dataNet'));
+        return view('backend.sim.index', compact('stt', 'dataSim','dataNet','helper'));
     }
 
     public function createForm()
     {
-        $dataTypeSim = $this->typeSim->all();
+        $dataTypeSim = $this->net->all();
 
         return view('backend.sim.create', compact('dataTypeSim'));
     }
     public function processCreateForm(CreateSimRequest $request)
     {
-           $dataRequest = $request->only(['name','price','status','first_number','type_sim_id', 'type_sim_name', 'description']);
+           $dataRequest = $request->only(['name','price','status','first_number','net_id', 'type_sim_name', 'description']);
            $this->sim->save($dataRequest);
            return Redirect::route('sim.index')->withSuccess('Thêm sim thành công.');
     }
 
     public function updateForm($id)
     {
-        $dataTypeSim = $this->typeSim->all();
+        $dataTypeSim = $this->net->all();
         $dataEdit = $this->sim->find($id);
         return view('backend.sim.update', compact('dataTypeSim', 'dataEdit'));
     }
 
     public function processUpdateForm(UpdateSimRequest $request, $id)
     {
-        $dataRequest = $request->only(['name','price','status','first_number','type_sim_id', 'type_sim_name', 'description']);
+        $dataRequest = $request->only(['name','price','status','first_number','net_id', 'type_sim_name', 'description']);
         if($this->sim->checkExitsNameInUpdate($id, $dataRequest['name'])){
             return redirect()->back()->withErrors('Số sim đã tồn tại.');
         }else{

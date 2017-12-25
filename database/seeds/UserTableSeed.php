@@ -16,7 +16,8 @@ class UserTableSeed extends Seeder
                 'name' => 'Admin',
                 'fullname' => 'Admin',
                 'email' =>env('EMAIL_ADMIN'),
-                'password' => bcrypt('admin@123'),
+                'is_admin' =>1,
+                'password' => bcrypt('admin@123')
         ]);
     }
 }

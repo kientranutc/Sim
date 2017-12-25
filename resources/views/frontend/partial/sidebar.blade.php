@@ -26,7 +26,7 @@
                 <div class="news-content">
                     <ul>
                     @forelse($newsStatus as $item)
-                        <li><a href="">{{$item->title}}</a></li>
+                        <li><a href="{{URL::route('frontend-news.show-detail',[$item->slug])}}">{{$item->title}}</a></li>
                     @empty
                     empty
                     @endforelse

@@ -34,8 +34,23 @@ class OrderController extends Controller
         $dataRequestOrder['date_order']=$now;
         $dataRequestOrder['customer_id']=$customerId;
         $this->order->save($dataRequestOrder);
-        return redirect()->back();
+        return redirect()->back()->withSuccess('Đặt hàng thành công! Xin vui lòng chờ nhân viên gọi lại.');
 
+    }
+    public function orderNow()
+    {
+        return view('frontend.order_now');
+    }
+
+    public function processOrderNow(Request $request)
+    {
+        $now =Carbon::now()->toDateTimeString();
+        $dataRequestCustomer = $request->only(['name','phone', 'cmnd', 'address']);
+        $customerId = $this->customer->save($dataRequestCustomer);
+        $data['date_order']=$now;
+        $data['customer_id']=$customerId;
+        $this->order->save($data);
+        return redirect()->back()->withSuccess('Đặt hàng thành công! Xin vui lòng chờ nhân viên gọi lại.');
     }
     //
 }

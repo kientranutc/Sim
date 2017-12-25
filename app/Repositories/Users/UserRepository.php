@@ -81,9 +81,7 @@ class UserRepository implements  UserRepositoryInterface
     }
     public function ListInSearchUser($email, $active, $limit)
     {
-        $result = UserRole::select('users.*', 'role.name as role_name')
-        ->join('users', 'users.id', '=', 'user_role.user_id')
-        ->join('role', 'role.id', '=', 'user_role.role_id');
+        $result = User::select('users.*');
         if($email != '') {
             $result->where(function ($query) use($email){
                 $query->where('users.email', 'like', "%$email%")
