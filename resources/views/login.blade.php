@@ -31,8 +31,14 @@
 					<div class="pull-left">
 						<i class="fa fa-lock fa-lg"></i> Login
 					</div>
+
 				</div>
 				<div class="panel-body">
+				@if($errors->any())
+                        <div class="alert alert-danger alert-dismissable">
+                            <span id="message">{{$errors->first()}}</span>
+                        </div>
+                    @endif
 					<form class="form-login" action="{{URL::route('login')}}" method="post">
 						{{ csrf_field() }}
 						<div class="form-group">

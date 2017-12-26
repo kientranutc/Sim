@@ -21,40 +21,26 @@ class AuthController extends Controller
 
     public function processLogin(LoginRequest $request)
     {
-        if (intval(session('countLogin')) == 5) {
-            if (env('EMAIL_ADMIN') != $request->get('email')) {
-                $this->user->lockAccount($request->get('email'));
-                return redirect()->back()->withErrors('account lock');
-            }
-            return redirect()->back()->withErrors('error account');
-        } else {
             $dataRequest = $request->only([
                     'email',
                     'password'
             ]);
             $dataFind = $this->user->findAttribute("email", $dataRequest['email']);
-            if ($dataFind->active == 1) {
-                if (Auth::attempt($dataRequest)) {
-                    if (session()->has('countLogin')) {
-                        session()->forget('countLogin');
-                    }
-                    return view('backend.index');
-                } else {
-                    if (session()->has('countLogin')) {
-                        session([
-                                'countLogin' => (session('countLogin') + 1)
-                        ]);
+            if( $dataFind) {
+                if ($dataFind->active == 1) {
+                    if (Auth::attempt($dataRequest)) {
+                        return view('backend.index');
                     } else {
-                        session([
-                                'countLogin' => 1
-                        ]);
+
+                        return redirect()->back()->withInput()->withErrors('Lỗi đăng nhập.');
                     }
-                    return redirect()->back()->withInput();
+                } else {
+                    return redirect()->back()->withInput()->withErrors('Tài khoản đã bị khóa');
                 }
             } else {
-                return redirect()->back()->withErrors('account inactive');
+                return redirect()->back()->withInput()->withErrors('Email chưa tồn tại.');
             }
-        }
+
     }
 
     public function logout()
