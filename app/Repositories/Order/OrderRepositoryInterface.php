@@ -14,4 +14,6 @@ interface  OrderRepositoryInterface
   public function listAndSearchOrder($name, $status, $limit);
 
   public function getOrderNew($limit);
+
+  public function getOrderCount($limit);
 }

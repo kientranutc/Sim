@@ -20,8 +20,8 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('fullname'))?"has-error":""}}">
-									<label class="control-label">Fullname</label> <input
-										type="text" placeholder="Fullname" name="fullname" value="{{Auth::user()->fullname}}"
+									<label class="control-label">Họ và tên</label> <input
+										type="text" placeholder="Họ và tên" name="fullname" value="{{Auth::user()->fullname}}"
 										class="form-control input-sm" data-required="true"
 										>
 										<p class="text-danger"> {{$errors->first('fullname')}}</p>
@@ -39,8 +39,8 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('password'))?"has-error":""}}">
-									<label class="control-label">Password</label> <input
-										type="password" placeholder="Password" name="password"
+									<label class="control-label">Mật khẩu</label> <input
+										type="password" placeholder="Mật khẩu" name="password"
 										class="form-control input-sm" id="password"
 										data-required="true">
 										<p class="text-danger"> {{$errors->first('password')}}</p>
@@ -50,8 +50,8 @@
 							<!-- /.col -->
 							<div class="col-md-6">
 								<div class="form-group {{($errors->has('confirm_password'))?"has-error":""}}">
-									<label class="control-label">Confirm Password</label> <input
-										type="password" name="confirm_password" placeholder="Confirm Password"
+									<label class="control-label">Nhập lại mật khẩu</label> <input
+										type="password" name="confirm_password" placeholder="Nhập lại mật khẩu"
 										class="form-control input-sm"
 										data-required="true">
 										<p class="text-danger"> {{$errors->first('confirm_password')}}</p>

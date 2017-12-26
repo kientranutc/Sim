@@ -149,7 +149,7 @@ class SimRepository implements  SimRepositoryInterface
     public function getListSimForNet($netSlug,$name, $typeSim, $price, $firstNumber, $limit)
     {
         $result = Sim::select('sim.*', 'net.name as net_name')
-        ->join('net', 'net.id', '=', 'Sim.net_id')
+        ->join('net', 'net.id', '=', 'sim.net_id')
         ->where('net.slug', $netSlug);
         if($name!=''){
             $result->where('sim.name','like', "%$name%");

@@ -125,7 +125,7 @@ class NewsRepository implements NewsRepositoryInterface
      */
     public function newsStatus($status)
     {
-        return News::where('status', $status)->limit(5)->get();
+        return News::where('status', $status)->limit(10)->get();
     }
     public function showNews($limit)
     {

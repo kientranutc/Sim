@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="{{asset('frontend/assets/img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
+	<meta http-equiv="content-language" content="vi" />
     <title>@yield('title')</title>
-    <link href="{{asset('frontend/assets/img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
+    <meta name="description" content="@yield('description')" />
+    <meta name="keywords" content="@yield('keywords')" />
+    <meta property="og:image" content="@yield('image')"/>
+  	<meta property="og:site_name" content="sim4gpro.net" />
+  	<meta property="article:section" content="Sim 4g" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name='revisit-after' content='1 days' />
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-    	<link href="{{asset('backend/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('frontend/assets/carousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/carousel/owl.theme.default.min.css')}}">
@@ -65,10 +70,9 @@
 </section>
 <footer>
     <div class="rowfoot2">
-        <p>© 2016 Sim số đẹp <a href="/tos">Xem chính sách sử dụng web</a></p>
+        <p>© 2016 Sim 4g <a href="/">Xem chính sách sử dụng web</a></p>
     </div>
 </footer>
-
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

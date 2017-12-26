@@ -79,10 +79,20 @@ class OrderRepository implements  OrderRepositoryInterface
             , 'customer.cmnd as customer_cmnd', 'customer.address as customer_address')
             ->leftJoin('sim', 'sim.id', '=', 'order.sim_id')
             ->join('customer', 'customer.id', '=', 'order.customer_id')
+            ->where('order.status', 1)
             ->orderBy('order.date_order', 'DESC')
             ->take($limit)
             ->get();
-
+    }
+    public function getOrderCount($limit)
+    {
+        return Order::select('order.*','sim.name as sim_name', 'customer.name as customer_name', 'customer.phone as customer_phone'
+            , 'customer.cmnd as customer_cmnd', 'customer.address as customer_address')
+            ->leftJoin('sim', 'sim.id', '=', 'order.sim_id')
+            ->join('customer', 'customer.id', '=', 'order.customer_id')
+            ->orderBy('order.date_order', 'DESC')
+            ->take($limit)
+            ->get();
     }
 
 }

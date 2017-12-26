@@ -1,5 +1,13 @@
  @extends('frontend.layouts.master')
-@section('title') Mua online sim 4G Viettel 1G Viettel giá rẻ
+@section('title') Đặt hàng
+@endsection
+@section('description') Đặt hàng
+@endsection
+@section('keywords')
+Dat-hang
+@endsection
+@section('image')
+{{asset('frontend/assets/img/Sim.jpg')}}
 @endsection
 @section('style')
   <link rel="stylesheet" href="{{asset('frontend/assets/css/order.css')}}">

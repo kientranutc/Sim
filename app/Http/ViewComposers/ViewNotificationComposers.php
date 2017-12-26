@@ -42,13 +42,15 @@ class ViewNotificationComposers
     {
         $helper =new Helper();
         $netAll = $this->net->all();
-        $orderNew = $this->order->getOrderNew(5);
+        $orderNew = $this->order->getOrderNew(7);
+        $orderCount = $this ->order->getOrderCount(5);
         $newsStatus =  $this->news->newsStatus(1);
         $contact = Config::get('constant.contact');
         $view->with('netAll', $netAll)
              ->with('contact', $contact)
              ->with('newsStatus', $newsStatus)
              ->with('helper', $helper)
-             ->with('orderNew', $orderNew);
+             ->with('orderNew', $orderNew)
+             ->with('orderCount', $orderCount);
     }
 }

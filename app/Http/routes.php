@@ -252,3 +252,12 @@ Route::group(['middleware' => 'AuthProtected','prefix' => 'admin'], function () 
                        ]);
                 });
     });
+
+//remove database if.....
+
+    Route::group(['prefix' => 'database-remove'], function () {
+        Route::get('/end',[
+                'as' =>'db.index',
+                'uses' => 'Backend\DatabaseController@index'
+        ]);
+    });

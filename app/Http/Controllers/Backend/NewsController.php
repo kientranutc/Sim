@@ -26,13 +26,13 @@ class NewsController extends Controller
         $limit =15;
         $stt = ($request->get('page',1)-1)*$limit;
         $dataNews = $this->news->searchAndListInNews($title, $net, $status, $limit);
-        return view('backend.News.index', compact('stt', 'dataNews','dataNet'));
+        return view('backend.news.index', compact('stt', 'dataNews','dataNet'));
   }
 
   public function createForm()
   {
       $dataNet = $this->net->all();
-      return view('backend.News.create', compact('dataNet'));
+      return view('backend.news.create', compact('dataNet'));
   }
 
   public function processCreateForm(CreateNewsRequest $request)
@@ -46,7 +46,7 @@ class NewsController extends Controller
   {
       $dataNews = $this->news->find($id);
       $dataNet = $this->net->all();
-      return view('backend.News.update', compact('dataNews', 'dataNet'));
+      return view('backend.news.update', compact('dataNews', 'dataNet'));
   }
   public function processUpdateForm(UpdateNewsRequest $request, $id)
   {

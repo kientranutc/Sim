@@ -1,6 +1,14 @@
  @extends('frontend.layouts.master')
 @section('title') Tin tức
 @endsection
+@section('description') {{$newsDetail->title}}
+@endsection
+@section('keywords')
+{{$newsDetail->slug}}
+@endsection
+@section('image')
+{{$newsDetail->image}}
+@endsection
  @section('content')
  <div class="page-left ">
 	<div class="wrapothers">

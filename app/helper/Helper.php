@@ -42,7 +42,7 @@ class Helper {
             $nextThree = substr($phoneNumber, -7, 3);
             $lastFour = substr($phoneNumber, -4, 4);
 
-            $phoneNumber = '+'.$countryCode.' '.$areaCode.'.'.$nextThree.'.'.$lastFour;
+            $phoneNumber = $countryCode.''.$areaCode.'.'.$nextThree.'.'.$lastFour;
         }
         else if(strlen($phoneNumber) == 10) {
             $areaCode = substr($phoneNumber, 0, 3);

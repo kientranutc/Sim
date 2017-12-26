@@ -79,18 +79,18 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="fa fa-bell fa-lg"></i>
-						<span class="notification-label bounceIn animation-delay6">{{count($orderNew)}}</span>
+						<span class="notification-label bounceIn animation-delay6">{{count($orderCount)}}</span>
 					</a>
 					<ul class="dropdown-menu notification dropdown-3">
-						<li><a href="#">Có {{count($orderNew)}} đơn hàng</a></li>
-						@forelse($orderNew as $item)
+						<li><a href="#">Có {{count($orderCount)}} đơn hàng</a></li>
+						@forelse($orderCount as $item)
 						<li>
 							<a href="#">
 								<span class="notification-icon bg-warning">
 									<i class="fa fa-shopping-bag"></i>
 								</span>
-								<span class="m-left-xs">Sim: {{($item->sim_name=='')?$item->customer_name:$item->sim_name}}</span>
-								<span class="time text-muted">{{$helper::calBetweenDate($item->date_order)}}</span>
+								<span class="m-left-xs">{{(empty($item->sim_name))?'Người đặt:'.$item->customer_name:'Sim đặt:'.$item->sim_name}}</span>
+								<span class="time text-muted">{{(empty($item->sim_name))?'':$helper::calBetweenDate($item->date_order)}}</span>
 							</a>
 						</li>
 						@empty

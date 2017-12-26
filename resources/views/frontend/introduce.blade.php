@@ -1,6 +1,14 @@
  @extends('frontend.layouts.master')
 @section('title') Giới thiệu gói cước
 @endsection
+@section('description') Giới thiệu gói cước
+@endsection
+@section('keywords')
+Gioi-thieu-goi-cuoc
+@endsection
+@section('image')
+{{asset('frontend/assets/img/Sim.jpg')}}
+@endsection
  @section('content')
  <div class="page-left ">
 	<div class="wrapothers">

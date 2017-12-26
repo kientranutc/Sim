@@ -1,6 +1,14 @@
  @extends('frontend.layouts.master')
 @section('title') Sim số đẹp
 @endsection
+@section('description') Trang chủ
+@endsection
+@section('keywords')
+Trang-chu
+@endsection
+@section('image')
+{{asset('frontend/assets/img/Sim.jpg')}}
+@endsection
  @section('content')
  <div class="page-left ">
                     <div class="searchsim">
@@ -72,7 +80,7 @@
                                 <tbody>
                                 	@forelse($dataSim as $item)
                                     <tr>
-                                        <td class="phone-number">{{$item->name}}</td>
+                                        <td class="phone-number">{{$helper::formatPhoneNumber($item->name)}}</td>
                                         <td class="phone-price">{{number_format($item->price)."₫"}}</td>
                                         <td class="phone-address"> {{$item->net_name}}</td>
                                         <td class="order-phone"><a href="{{URL::route('order-frontend.index',[$item->id])}}">Mua</a></td>

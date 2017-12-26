@@ -1,6 +1,14 @@
  @extends('frontend.layouts.master')
 @section('title') Tin tức
 @endsection
+@section('description') Tin tức
+@endsection
+@section('keywords')
+Tin-tuc
+@endsection
+@section('image')
+{{asset('frontend/assets/img/Sim.jpg')}}
+@endsection
  @section('content')
  <div class="page-left ">
 	<div class="wrapothers">
