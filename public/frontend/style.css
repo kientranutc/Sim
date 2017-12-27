@@ -434,9 +434,6 @@ header {
     border-bottom: 1px #ccc dotted;
 }
 
-.contact {
-    padding: 9px 32px;
-}
 .contact h6{
 	    margin-bottom: 5px;
 }
@@ -498,4 +495,7 @@ header {
 .content-orders {
     background: #ededed;
     padding: 10px 5px;
+}
+i.fa.fa-phone {
+    font-size: 26px;
 }

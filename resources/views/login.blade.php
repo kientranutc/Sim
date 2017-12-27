@@ -31,7 +31,6 @@
 					<div class="pull-left">
 						<i class="fa fa-lock fa-lg"></i> Login
 					</div>
-
 				</div>
 				<div class="panel-body">
 				@if($errors->any())

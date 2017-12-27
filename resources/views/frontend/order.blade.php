@@ -21,7 +21,7 @@ Dat-hang
 	<form action="{{URL::route('order.process-order')}}" method="post">
 		{{ csrf_field() }}
 	<input type="hidden" name="sim_id" value="{{$dataSim->id}}">
-		<input type="hidden" name="total" value="{{$dataSim->price+10000}}">
+		<input type="hidden" name="total" value="{{$dataSim->price}}">
 		<div class="wrap_cart">
 			<div class="detail_cart">
 				<ul class="listorder">
@@ -45,9 +45,9 @@ Dat-hang
 					</li>
 					<li class="tragop-price"><span class="text-left" id="fee-left">Phí
 							giao hàng:</span> <span class="text-right" id="fee-right"
-						data-value="10000">+10.000₫</span></li>
+						data-value="10000">0₫ </span></li>
 					<li class="tragop-price"><span class="text-left"><b>Cần thanh toán:</b></span>
-						<span class="text-right"><strong><b id="totalpay">{{number_format($dataSim->price+10000)}}₫</b></strong></span>
+						<span class="text-right"><strong><b id="totalpay">{{number_format($dataSim->price)}}₫ </b></strong></span>
 					</li>
 				</ul>
 			</div>
