@@ -5,6 +5,7 @@
 	<link href="{{asset('frontend/assets/img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
 	<meta http-equiv="content-language" content="vi" />
     <title>@yield('title')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')" />
     <meta name="keywords" content="@yield('keywords')" />
     <meta property="og:image" content="@yield('image')"/>
